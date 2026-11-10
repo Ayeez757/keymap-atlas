@@ -1,0 +1,17 @@
+[Unit]
+Description=键位图鉴 · 键盘热插拔监视（快捷键清单自动重建）
+Documentation=https://keymap.ayeez.cn/
+# niri / 图形会话起来之后才有意义，但不硬依赖具体图形目标
+After=graphical-session.target
+
+[Service]
+Type=simple
+# 只监视 input 子系统；udevadm monitor 不需要 root
+ExecStart=@BINDIR@/keymap-watch.sh --quiet
+# 换键盘是低频事件，别跟编译/视频抢 CPU
+Nice=10
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target
