@@ -142,6 +142,17 @@ src/keymap_atlas/
   cli.py        子命令
 ```
 
+## 部署自己的副本
+
+`web/` 是纯静态页面，`deploy/` 是 nginx 容器。想放到自己的域名上：
+
+```bash
+cd deploy && docker compose up -d
+```
+
+细节（证书、隧道、广告位怎么填）见 [docs/deploy.md](docs/deploy.md)。
+那个文档里记了一个容易踩的坑：**隧道透传 TLS 时本地必须自己终结 TLS**。
+
 ## 许可
 
 MIT。Copyright (c) 2026 Ayeez。
