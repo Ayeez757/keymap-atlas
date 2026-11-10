@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>键位图鉴 keymap-atlas · 把 Linux 快捷键整理成中文速查表</title>
+<meta name="description" content="keymap-atlas 收集 Linux 上六层快捷键（合成器、输入法、终端、内核、KDE、GNOME），用实测与 HID 描述符证据判断按键真假，生成可离线查阅的中文速查表。MIT 开源，无依赖。">
+<meta name="keywords" content="Linux 快捷键,Wayland,niri,KDE 快捷键,键位表,快捷键速查,HID 描述符,evdev,keymap">
+<link rel="canonical" href="https://keymap.ayeez.cn/">
+<link rel="stylesheet" href="assets/style.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="键位图鉴 keymap-atlas">
+<meta property="og:description" content="把一台 Linux 机器上各层快捷键收集成中文速查表，并判断这个键到底按不按得出来。">
+<meta property="og:url" content="https://keymap.ayeez.cn/">
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <span class="brand">键位图鉴 <span>keymap-atlas</span></span>
+  <nav>
+    <a href="#what">是什么</a>
+    <a href="#download">下载</a>
+    <a href="#how">怎么用</a>
+    <a href="https://github.com/Ayeez757/keymap-atlas">源码</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+<!-- 首屏：不放广告 -->
+<div class="hero">
+  <h1>把 Linux 上的快捷键，整理成<em>能信</em>的中文速查表</h1>
+  <p>六层来源一次收齐：合成器、输入法、终端、内核、KDE、GNOME。更重要的是它回答
+     「这个键我这把键盘到底按不按得出来」——用实测、HID 描述符和 <code>/proc</code>
+     位图交叉验证，而不是照抄配置了事。</p>
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/Ayeez757/keymap-atlas">在 GitHub 上查看</a>
+    <a class="btn ghost" href="#download">下载与安装</a>
+  </div>
+  <p class="meta">v0.1.0 · MIT 许可 · Python ≥ 3.10 · 零第三方依赖 · 约 3000 行</p>
+</div>
+
+<!-- 广告位 1：正文开始前的横幅 -->
+<div class="ad-slot" data-filled="0" data-ad="top">
+  <div class="ad-label">赞助商</div>
+  <div data-ad-target></div>
+</div>
+
+<section id="what">
+  <h2>它解决什么问题</h2>
+  <p class="lede">列快捷键的工具不少，但几乎都不处理一个前提：<b>配置里写了，不等于按得出来。</b></p>
+
+  <p>每个键盘在 <code>/proc/bus/input/devices</code> 里都有一张「按键能力位图」。看着像真相，
+     其实经常是假的：很多 USB 键盘在 HID 描述符里只声明一个<b>泛型全范围数组</b>
+     （键盘页 <code>0x00–0xff</code>、Consumer 页 <code>0x0–0x33c</code>），内核就把整段区间
+     全部标成「有这个键」。于是位图声称你有音量加键，按下去却毫无反应。</p>
+
+  <p>本项目把判断依据排成一条优先级链，每一级都能说清出处，判不出来就老实说判不出来。</p>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>优先级</th><th>依据</th><th>结论</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>探针实测按出过</td><td>✅ 可按</td></tr>
+      <tr><td class="num">2</td><td>HID 描述符点名了该 usage</td><td>✅ 可按</td></tr>
+      <tr><td class="num">3</td><td>你标记「我这把键盘没有」</td><td>⛔ 按不出</td></tr>
+      <tr><td class="num">4</td><td>HID 描述符完全没覆盖</td><td>⛔ 按不出</td></tr>
+      <tr><td class="num">5</td><td>只被泛型范围覆盖</td><td>❓ 存疑，需实测</td></tr>
+      <tr><td class="num">6</td><td><code>/proc</code> 位图声称有</td><td>✅ 但注明「未实测」</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>六个可静态解析的层</h2>
+  <p class="lede">下表的数字取自一台真实的 Fedora + niri 机器，可以直接对照。</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>层</th><th>来源</th><th class="num">条数</th><th>状态</th></tr></thead>
+    <tbody>
+      <tr><td>1 · 合成器层</td><td><code>~/.config/niri/**/*.kdl</code></td><td class="num">137</td><td><span class="tag">生效</span></td></tr>
+      <tr><td>2 · 输入法层</td><td><code>~/.config/fcitx5/config</code></td><td class="num">7</td><td><span class="tag">生效</span></td></tr>
+      <tr><td>3 · 终端应用层</td><td><code>~/.config/ghostty/config</code></td><td class="num">6</td><td><span class="tag">生效</span></td></tr>
+      <tr><td>4 · 内核 / 硬件层</td><td>logind 属性、<code>sysrq</code></td><td class="num">16</td><td><span class="tag">生效</span></td></tr>
+      <tr><td>5 · KDE 全局快捷键</td><td><code>~/.config/kglobalshortcutsrc</code></td><td class="num">114</td><td><span class="tag off">未生效</span></td></tr>
+      <tr><td>6 · GNOME 键位</td><td><code>gsettings</code></td><td class="num">58</td><td><span class="tag off">未生效</span></td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin-top:14px;color:var(--muted);font-size:.88rem">
+    未生效的层照样列出来——迁移桌面环境时最需要它。还有一层<b>故意不列</b>：
+    浏览器 / Electron 应用内快捷键、GTK-Qt 的 accel、键盘固件里的 Fn 组合、
+    portal <code>GlobalShortcuts</code>（按会话隔离，读别人的会话会被 <code>Access denied</code>）。
+  </p>
+</section>
+
+<!-- 广告位 2：正文中段 -->
+<div class="ad-slot" data-filled="0" data-ad="mid">
+  <div class="ad-label">赞助商</div>
+  <div data-ad-target></div>
+</div>
+
+<section id="download">
+  <h2>下载与安装</h2>
+  <p class="lede">推荐从源码安装，只有一份 Python 包，没有编译步骤。</p>
+
+<pre><code>git clone https://github.com/Ayeez757/keymap-atlas
+cd keymap-atlas
+pip install --user .
+keymap-atlas report --outdir ~/快捷键</code></pre>
+
+  <p>不想装也能直接跑：</p>
+<pre><code>PYTHONPATH=src python3 -m keymap_atlas report --outdir ~/快捷键</code></pre>
+
+  <p>图形探针（真实按键检测）需要 GTK4 的 Python 绑定，这是唯一的可选依赖：</p>
+<pre><code># Fedora
+sudo dnf install python3-gobject gtk4
+# Debian / Ubuntu
+sudo apt install python3-gi gir1.2-gtk-4.0</code></pre>
+
+  <div class="grid" style="margin-top:22px">
+    <div class="card"><h3>单文件 HTML</h3>
+      <p>产物 <code>all-shortcuts-zh.html</code> 自带搜索框，离线可用，可以直接丢进 U 盘。</p></div>
+    <div class="card"><h3>TSV / JSON</h3>
+      <p><code>shortcuts-index.tsv</code> 六列，方便接自己的脚本或表格工具。</p></div>
+    <div class="card"><h3>热插拔自动重算</h3>
+      <p>装成 systemd 用户服务后，换键盘自动重建；只要 <code>udevadm</code>，不需要 root。</p></div>
+  </div>
+</section>
+
+<section id="how">
+  <h2>三条命令走完</h2>
+  <ol class="steps">
+    <li><b>看清楚现在有什么</b><br>
+      <code>keymap-atlas layers</code> 列出这台机器能解析到哪几层、各多少条；
+      <code>keymap-atlas doctor</code> 告诉你哪些证据源可用。</li>
+    <li><b>让判定变准</b><br>
+      <code>keymap-atlas probe</code> 开一个小窗口，把你关心的键按一遍。实测结果优先于
+      任何文件推断；换上另一把键盘，旧记录会自动降级为「存疑」而不是被删掉。</li>
+    <li><b>查表</b><br>
+      <code>keymap-atlas lookup 音量</code>、<code>lookup yl</code>（拼音首字母）、
+      <code>lookup jt --all</code>。想要弹窗就用 <code>scripts/keys-lookup.sh</code>，
+      选中即复制到剪贴板。</li>
+  </ol>
+</section>
+
+<section>
+  <h2>判定为什么分三态</h2>
+  <p class="lede">因为「不确定」是真实信息，抹平它会骗人。</p>
+  <div class="states">
+    <div class="state"><b>✅ 可按</b><p>实测按出过，或 HID 描述符点名了该键。</p></div>
+    <div class="state"><b>❓ 存疑</b><p>只被泛型范围覆盖，文件层面无法判定；或者实测记录来自上一把键盘。</p></div>
+    <div class="state"><b>⛔ 按不出</b><p>描述符完全没覆盖，或你明确标记过这把键盘没有该键。</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>常见问题</h2>
+  <details><summary>为什么我的 PrintScreen 不出现在表里？</summary>
+    <p>evdev 里打印屏幕键是 <code>KEY_SYSRQ</code>（码 99），而不是 210。很多键盘的
+       Consumer 接口会在描述符里声明 210，于是位图看起来「有」，实际按不出来。
+       工具会把它标成三态里的某一档，而不是假装有。</p></details>
+  <details><summary>必须以 niri 为桌面才能用吗？</summary>
+    <p>不是。六层里只有第一层依赖 niri。缺哪一层就整层跳过，不会因为找不到文件就崩。
+       输入法、终端、KDE、GNOME、内核层都是独立探测的，任意组合可用。</p></details>
+  <details><summary>为什么不读浏览器里的快捷键？</summary>
+    <p>浏览器的快捷键编译进程序，或者存在 profile 的加密库里；扩展的快捷键又在各自的
+       存储里。没有统一导出接口，硬猜就是编造。</p></details>
+  <details><summary>会修改我的配置吗？</summary>
+    <p>不会。程序只读配置文件；会写的地方只有输出目录，以及状态目录
+       （<code>~/.config/keymap-atlas/</code>）里保存实测记录和键盘指纹。</p></details>
+  <details><summary>换键盘以后要重新按一遍吗？</summary>
+    <p>不用全部重按。指纹改变后旧记录标记为「来自旧键盘」；你换回原键盘时它们会自动
+       重新生效。只有新键盘上没验证过的键需要按。</p></details>
+  <details><summary>为什么表格里有的行标着「未生效」？</summary>
+    <p>因为那层属于别的桌面环境。你在 niri 会话里按 KDE 的快捷键当然没反应，
+       但迁移过去时它就是你要的参照。</p></details>
+</section>
+
+<section>
+  <h2>许可与致谢</h2>
+  <p class="lede" style="margin-bottom:0">MIT 许可，Copyright (c) 2026 Ayeez。
+     欢迎 issue 与 PR；新增一个层就是新增一个 <code>layers/*.py</code>，附带测试即可。</p>
+</section>
+
+</main>
+
+<footer><div class="wrap cols">
+  <div>
+    <div>键位图鉴 · keymap-atlas</div>
+    <div style="margin-top:6px">MIT · 2026 Ayeez</div>
+  </div>
+  <div>
+    <div><a href="https://github.com/Ayeez757/keymap-atlas">GitHub 仓库</a></div>
+    <div style="margin-top:6px"><a href="privacy.html">隐私说明</a></div>
+  </div>
+</div></footer>
+
+<script src="ad.js" defer></script>
+</body>
+</html>

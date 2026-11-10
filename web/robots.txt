@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+# 不要屏蔽 /assets/：Google 需要 CSS 才能正确渲染页面并给移动端友好度打分。
+
+Sitemap: https://keymap.ayeez.cn/sitemap.xml

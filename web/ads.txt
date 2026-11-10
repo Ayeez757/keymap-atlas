@@ -1,0 +1,6 @@
+# ads.txt —— 只声明能确认的授权卖方。
+# AdSense 的 pub 号尚未申请，拿到后把下一行的 pub-0000000000000000 换成真实值再放开。
+# Adsterra 没有公开 ads.txt 记录（其官网 /ads.txt 返回的是站点 HTML），
+# 拿到 Publisher ID 后按它后台给的示例补一行，格式同样是：
+#   域名, 发布者ID, DIRECT 或 RESELLER, 认证机构ID
+# placeholder: google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

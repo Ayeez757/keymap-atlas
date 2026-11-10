@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>隐私说明 · 键位图鉴 keymap-atlas</title>
+<meta name="description" content="keymap-atlas 站点与工具的隐私说明：工具本身不联网、不收集数据；页面上的第三方广告可能使用 Cookie。">
+<link rel="canonical" href="https://keymap.ayeez.cn/privacy.html">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <span class="brand">键位图鉴 <span>keymap-atlas</span></span>
+  <nav><a href="index.html">返回首页</a><a href="https://github.com/Ayeez757/keymap-atlas">源码</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="hero" style="padding-bottom:8px">
+  <h1 style="font-size:1.6rem">隐私说明</h1>
+  <p>最后更新：2026 年 11 月</p>
+</div>
+
+<section>
+  <h2>工具本身</h2>
+  <p><b>keymap-atlas 这个程序不会联网。</b>它只是读你本机的配置文件、
+     <code>/proc</code> 与 <code>/sys</code>，然后把结果写到你指定的目录。
+     没有遥测、没有崩溃上报、没有版本检查、没有账号。</p>
+  <p>保存下来的数据只有两处，都在这台机器上：</p>
+  <ul>
+    <li>输出目录里的报告文件（md / html / tsv / json）；</li>
+    <li><code>~/.config/keymap-atlas/</code> 里的实测记录与键盘指纹。
+        指纹是设备名和按键数的 SHA-1 前 16 位，用来判断「键盘换没换」，
+        不含任何个人信息。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>本站（keymap.ayeez.cn）</h2>
+  <p>本站是纯静态页面，没有登录、没有表单、不写自己的 Cookie，也不做访客统计。</p>
+  <p>服务器访问日志会由 nginx 记录常规信息（IP、时间、请求路径、User-Agent），
+     仅用于排查故障与防滥用，不用于画像，按运维惯例短期保留。</p>
+</section>
+
+<section>
+  <h2>第三方广告</h2>
+  <p>本站挂了第三方广告，用以覆盖域名与服务器成本。广告位由下列服务提供，
+     它们可能设置 Cookie 或读取设备信息以决定展示内容。这些行为由各自的隐私政策约束，
+     不在本站控制范围内：</p>
+  <ul>
+    <li><a href="https://policies.google.com/technologies/ads" rel="nofollow noopener">Google AdSense / Google 广告</a>
+        —— 包括 <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener">Google 如何使用合作网站的信息</a>；</li>
+    <li><a href="https://adsterra.com/privacy-policy/" rel="nofollow noopener">Adsterra</a>。</li>
+  </ul>
+  <p>你可以拒绝个性化广告：
+     <a href="https://adssettings.google.com/" rel="nofollow noopener">Google 广告设置</a>、
+     <a href="https://www.aboutads.info/choices/" rel="nofollow noopener">aboutads.info</a>，
+     或在浏览器里拦截第三方脚本。广告位在拦截后不会留下空白占位。</p>
+  <p>本站不接受也不投放弹出式（popunder）广告。</p>
+</section>
+
+<section>
+  <h2>联系</h2>
+  <p>问题请走 GitHub issue：
+     <a href="https://github.com/Ayeez757/keymap-atlas/issues">Ayeez757/keymap-atlas</a>。</p>
+</section>
+</main>
+
+<footer><div class="wrap cols">
+  <div>键位图鉴 · keymap-atlas</div>
+  <div><a href="index.html">返回首页</a></div>
+</div></footer>
+</body>
+</html>
