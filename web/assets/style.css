@@ -64,6 +64,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 72px;
   -webkit-text-size-adjust: 100%;
+  /* 任何情况下都不给横向滚动条：溢出的只可能是装饰，不该让页面横着走 */
+  overflow-x: clip;
 }
 
 body {
@@ -143,7 +145,8 @@ header {
 }
 .brand:hover { text-decoration: none; }
 
-.brand svg { width: 22px; height: 22px; display: block; }
+.brand img,
+.brand svg { width: 24px; height: 24px; display: block; border-radius: 6px; }
 
 .brand .latin {
   font-family: var(--mono);
@@ -192,7 +195,9 @@ header {
 
 /* ========================================================== 首屏 */
 .hero {
-  padding: 92px 0 20px;
+  /* 只设纵向内边距：左右要留给 .wrap，否则手机上文字会贴边 */
+  padding-top: 92px;
+  padding-bottom: 20px;
   text-align: center;
 }
 
@@ -339,6 +344,9 @@ header {
 .shot {
   margin: 56px auto 0;
   max-width: 1000px;
+  /* 视频有 1280 的固有宽度，别让它把布局顶宽 */
+  width: 100%;
+  min-width: 0;
 }
 
 .frame {
@@ -367,6 +375,8 @@ header {
 
 .frame .url {
   flex: 1;
+  /* flex 项默认 min-width:auto，长标题会把整个 frame 撑出视口 */
+  min-width: 0;
   font-family: var(--mono);
   font-size: 0.74rem;
   color: var(--muted);
@@ -376,12 +386,29 @@ header {
   text-overflow: ellipsis;
 }
 
-.frame img {
+.frame img,
+.frame video {
   display: block;
   width: 100%;
   height: auto;
   background: var(--bg-soft);
 }
+
+/* 视频右下角的静音开关：默认静音，点了才出声 */
+.frame .sound {
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 5px 9px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .15s, border-color .15s;
+}
+.frame .sound:hover { color: var(--fg); border-color: var(--muted); }
 
 .shot .cap {
   margin: 12px 0 0;
@@ -838,9 +865,14 @@ footer .cols {
 }
 
 footer .who {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   font-weight: 560;
   color: var(--fg-dim);
 }
+
+footer .who img { width: 20px; height: 20px; display: block; border-radius: 5px; }
 
 footer .who .latin {
   font-family: var(--mono);
@@ -868,7 +900,7 @@ footer .fine {
 
 /* ====================================================== 适配 */
 @media (max-width: 720px) {
-  .hero { padding: 64px 0 8px; }
+  .hero { padding-top: 64px; padding-bottom: 8px; }
   .hero .sub { font-size: 0.98rem; }
   section { padding: 64px 0; }
   th, td { padding: 11px 13px; }

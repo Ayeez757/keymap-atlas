@@ -1,4 +1,4 @@
-/* 广告加载器：一个文件管两个网络，位点由 data-* 配置。
+/* 广告加载器：一个文件管两个网络，位点与尺寸由 CFG 决定。
  *
  * 设计约束（都是踩过的坑）：
  *  1. 懒加载：滚动到附近才注入，首屏不被广告拖慢；
@@ -6,7 +6,9 @@
  *  3. 未配置就不占位：容器 data-filled="0" 时 CSS 直接 display:none，
  *     广告被拦截也不会出现空洞；
  *  4. Adsterra 的脚本会给 <script> 加 data-cfasync="false"，否则
- *     Cloudflare 的 Rocket Loader 会打乱它的执行顺序。
+ *     Cloudflare 的 Rocket Loader 会打乱它的执行顺序；
+ *  5. Adsterra 只出固定尺寸，所以两个位点各按断点准备了一套素材，
+ *     窄屏用 320×50，宽屏用 728×90。
  */
 (function () {
   "use strict";
@@ -16,10 +18,19 @@
     slots: { top: "", mid: "" },  // AdSense 广告单元 id，留空则用 Adsterra
 
     adsterra: {
-      // 每个位点一个 key + 尺寸。key 形如 "abcdef0123456789..."，
-      // 由 Adsterra 后台「Banner」代码里的 invoke.js?key= 参数给出。
-      top: { key: "", width: 728, height: 90 },
-      mid: { key: "", width: 300, height: 250 }
+      /* Adsterra 后台给的是 <script src="https://<host>/<path>/<key>"> 形式，
+       * host 与 path 会变更，所以拆成两段存，换域名时只改这里。 */
+      host: "bellnewyork.org",
+      path: "22",
+
+      // 每个位点一套或多套素材。有 desk / mob 两个键时按视口宽度二选一。
+      top: {
+        desk: { key: "adb21c95e5758a141e436d713e09cc29", width: 728, height: 90 },
+        mob:  { key: "51215ba03350c2ec6e01d69c7eccb9ec", width: 320, height: 50 }
+      },
+      mid: {
+        desk: { key: "b2560d6bc632c93c3f4f702d076d09f7", width: 300, height: 250 }
+      }
     },
 
     timeout: 8000,
@@ -59,6 +70,17 @@
     return s;
   }
 
+  /* 从位点配置里挑一套素材：宽屏优先 desk，没有就退回唯一那套 */
+  function pickSpec(cfg, wide) {
+    if (!cfg) return null;
+    if (cfg.desk || cfg.mob) {
+      if (wide && cfg.desk) return cfg.desk;
+      if (!wide && cfg.mob) return cfg.mob;
+      return cfg.desk || cfg.mob;
+    }
+    return cfg.key ? cfg : null;
+  }
+
   /* ---------------------------------------------------------- Adsterra */
   function adsterraAt(slot, spec) {
     if (!spec || !spec.key) return;
@@ -79,22 +101,21 @@
     box.setAttribute("data-ad-loaded", "1");
     markFilled(slot);
 
+    var src = "https://" + CFG.adsterra.host + "/" + CFG.adsterra.path + "/" + spec.key;
     var doc = f.contentDocument;
     doc.open();
     doc.write(
       '<!doctype html><html><head><meta charset="utf-8">' +
-      '<style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body>' +
+      '<style>html,body{margin:0;padding:0;overflow:hidden;background:transparent}</style></head><body>' +
       '<script type="text/javascript">' +
       'atOptions = { "key": "' + spec.key + '", "format": "iframe", ' +
-      '"height": ' + spec.height + ', "width": ' + spec.width + ' };' +
+      '"height": ' + spec.height + ', "width": ' + spec.width + ', "params": {} };' +
       '<\/script>' +
-      '<script type="text/javascript" src="//www.highperformanceformat.com/' +
-      spec.key + '/invoke.js"><\/script>' +
+      '<script type="text/javascript" src="' + src + '"><\/script>' +
       '</body></html>'
     );
     doc.close();
 
-    // iframe 一挂上就算填了；guard 到点会检查有没有砌出内容
     f.addEventListener("load", function () { ok(); markFilled(slot); });
   }
 
@@ -112,9 +133,9 @@
   }
 
   function adsenseAt(slot, slotId) {
-    if (!CFG.adsenseClient || !slotId) return;
+    if (!CFG.adsenseClient || !slotId) return false;
     var box = slot.querySelector("[data-ad-target]");
-    if (!box) return;
+    if (!box) return false;
     guard(slot);
 
     var ins = el("ins", {
@@ -130,6 +151,7 @@
 
     if (adsenseReady) flushAdsense();
     else adsenseQueue.push(ins);
+    return true;
   }
 
   /* -------------------------------------------------------------- 调度 */
@@ -138,8 +160,10 @@
     if (fired[name]) return;
     fired[name] = true;
 
-    if (CFG.slots[name]) adsenseAt(slot, CFG.slots[name]);
-    else adsterraAt(slot, CFG.adsterra[name]);
+    if (adsenseAt(slot, CFG.slots[name])) return;
+
+    var wide = window.innerWidth >= 760;
+    adsterraAt(slot, pickSpec(CFG.adsterra[name], wide));
   }
 
   function boot() {

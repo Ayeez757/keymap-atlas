@@ -3,16 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>键位图鉴 keymap-atlas · 把 Linux 快捷键整理成能信的中文速查表</title>
-<meta name="description" content="keymap-atlas 收集 Linux 上六层快捷键（合成器、输入法、终端、内核、KDE、GNOME），用实测与 HID 描述符证据判断按键真假，生成可离线查阅的中文速查表。MIT 开源，无依赖。">
-<meta name="keywords" content="Linux 快捷键,Wayland,niri,KDE 快捷键,键位表,快捷键速查,HID 描述符,evdev,keymap">
+<title>键位图鉴 · 换键盘、换设备，快捷键照样上手</title>
+<meta name="description" content="键位图鉴把一台 Linux 机器上六层快捷键收成一份中文速查表，还能判断这个键你这把键盘到底按不按得出来。换键盘不用重背，新设备十分钟上手。">
+<meta name="keywords" content="Linux 快捷键,快捷键速查,换键盘,新设备上手,Wayland,niri,KDE 快捷键,键位表,HID 描述符,evdev">
 <link rel="canonical" href="https://keymap.ayeez.cn/">
 <link rel="stylesheet" href="assets/style.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0b0d'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%237ee787' font-family='monospace'%3E%E6%8D%B7%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <meta property="og:type" content="website">
-<meta property="og:title" content="键位图鉴 keymap-atlas">
-<meta property="og:description" content="把一台 Linux 机器上各层快捷键收集成中文速查表，并判断这个键到底按不按得出来。">
+<meta property="og:title" content="键位图鉴">
+<meta property="og:description" content="换键盘、换设备，快捷键照样上手。一份能查、能确认、能带走的中文速查表。">
 <meta property="og:url" content="https://keymap.ayeez.cn/">
+<meta property="og:image" content="https://keymap.ayeez.cn/assets/demo-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a0b0d" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
 </head>
@@ -21,14 +23,11 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="键位图鉴 首页">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="2" y="6" width="20" height="12" rx="2.5" stroke="currentColor" stroke-width="1.4"/>
-        <path d="M6 10h1M9.5 10h1M13 10h1M16.5 10h1M8 13.5h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
+      <img src="assets/logo.svg" width="26" height="26" alt="">
       键位图鉴<span class="latin">keymap-atlas</span>
     </a>
     <nav>
-      <a href="#what">是什么</a>
+      <a href="#what">解决什么</a>
       <a href="#layers">六层</a>
       <a href="#download">安装</a>
       <a href="#how">用法</a>
@@ -43,23 +42,26 @@
 <div class="wrap hero">
   <p class="eyebrow"><b>v0.1.0</b> MIT 许可 · Python ≥ 3.10 · 零依赖</p>
 
-  <h1>把 Linux 快捷键，整理成<em>能信</em>的中文速查表</h1>
+  <h1>换键盘、换设备，<em>照样上手</em></h1>
 
   <p class="sub">
-    六层来源一次收齐：合成器、输入法、终端、内核、KDE、GNOME。
-    更重要的是它回答「这个键我这把键盘到底按不按得出来」——
-    用实测、HID 描述符与 <code>/proc</code> 位图交叉验证，而不是照抄配置了事。
+    六层快捷键一次收成一份中文速查表：合成器、输入法、终端、内核、KDE、GNOME。
+    搜「音量」出结果，搜「yl」也出结果，选中就复制。
+    换了键盘不用重背，换了机器十分钟内找回手感。
   </p>
 
   <div class="cta">
-    <a class="btn primary" href="https://github.com/Ayeez757/keymap-atlas">
-      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-      在 GitHub 上查看
+    <a class="btn primary" href="#download">
+      装一个试试
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <a class="btn ghost" href="#download">安装与使用</a>
+    <a class="btn ghost" href="https://github.com/Ayeez757/keymap-atlas">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      GitHub
+    </a>
   </div>
 
-  <p class="meta">Fedora · niri 会话实测<span>·</span>338 条快捷键<span>·</span>约 3000 行</p>
+  <p class="meta">Fedora + niri 实测<span>·</span>338 条快捷键<span>·</span>三个键按出结果</p>
 
   <!-- 键帽示意：纯 CSS，不用图片 -->
   <div class="keyrow" aria-hidden="true">
@@ -67,21 +69,26 @@
     <span class="out">系统音量 +3%</span>
   </div>
 
-  <!-- 产品截图 -->
+  <!-- 演示视频 -->
   <div class="shot">
     <div class="frame">
       <div class="bar">
         <span class="dots"><i></i><i></i><i></i></span>
-        <span class="url">all-shortcuts-zh.html</span>
+        <span class="url">快捷键浮窗</span>
+        <button class="sound" type="button" data-video="demo" aria-label="播放声音">🔈 静音</button>
       </div>
-      <img src="assets/shot.png" width="1000" height="589" decoding="async" fetchpriority="high"
-           alt="生成的单文件 HTML 速查表：顶部搜索框，下面按层分组的快捷键表格，每行标注按键、动作与三态判定。">
+      <video id="demo" poster="assets/demo-poster.jpg" width="1280" height="800"
+             autoplay muted loop playsinline preload="metadata"
+             aria-label="演示：调出快捷键浮窗，输入关键词即出现对应快捷键">
+        <source src="assets/demo.mp4" type="video/mp4">
+        <img src="assets/demo-poster.jpg" width="1280" height="800" alt="弹窗查找快捷键的截图">
+      </video>
     </div>
-    <p class="cap">产物是一份单文件 HTML：自带搜索框，离线可用，可以直接丢进 U 盘。</p>
+    <p class="cap">十二秒，没有旁白：调出浮窗，输入就给结果，选中即复制。</p>
   </div>
 </div>
 
-<!-- 广告位 1：首屏之后。此处是 728×90 / 响应式的最佳位置 -->
+<!-- 广告位 1：首屏之后 -->
 <div class="wrap">
   <div class="ad-slot" data-filled="0" data-ad="top">
     <div class="ad-label">广告</div>
@@ -89,36 +96,34 @@
   </div>
 </div>
 
-<!-- ==================================================== 是什么 -->
+<!-- ==================================================== 解决什么 -->
 <section id="what">
   <div class="wrap">
     <div class="head">
-      <span class="sect-label">问题</span>
-      <h2>配置里写了，不等于按得出来</h2>
-      <p class="lede">列快捷键的工具不少，但几乎都不处理这个前提。</p>
+      <span class="sect-label">为什么要它</span>
+      <h2>快捷键最大的成本，是每次都重新找一遍</h2>
+      <p class="lede">换一把键盘、换一台机器，昨天还会的组合今天就忘。</p>
     </div>
 
     <div class="prose">
       <p>
-        每个键盘在 <code>/proc/bus/input/devices</code> 里都有一张「按键能力位图」，
-        看着像真相，其实经常是假的：很多 USB 键盘在 HID 描述符里只声明一个
-        <b>泛型全范围数组</b>（键盘页 <code>0x00–0xff</code>、Consumer 页
-        <code>0x0–0x33c</code>），内核就把整段区间全部标成「有这个键」。
+        每个人的键位习惯都散落在十几处：合成器配置、输入法、终端、桌面环境、
+        还有那些只存在于肌肉记忆里的东西。想在另一台机器上复用，
+        只能翻配置文件、翻博客、或者干脆重新适应。
       </p>
       <p>
-        于是位图声称你有音量加键，按下去却毫无反应。反过来，PrintScreen 在 evdev 里
-        是 <code>KEY_SYSRQ</code>（码 99），而 210 是 Consumer 接口声明的假象——
-        按位图找，永远找不对。
+        这个工具把散落的键位收成一张表，搜一下就有，随手能复制。
+        搬机器时把生成的 HTML 拷过去就能用，不联网也查得动。
       </p>
       <p>
-        本项目把判断依据排成一条优先级链，每一级都能说清出处，
-        判不出来就老实说判不出来。
+        更方便的是查的时候不必记全名：打「音量」可以，打「yl」也可以，
+        打「jt」找截图也行——拼音首字母是很多人真实的检索方式。
       </p>
     </div>
 
     <blockquote class="quote-rule">
-      别人的工具告诉你「<b>Super Q 关闭窗口</b>」。
-      这里还告诉你「<b>你这把键盘上没有音量加键</b>」以及凭什么。
+      顺手的前提是准。所以它顺带还回答另一个问题：
+      <b>这个键，你这把键盘上到底按不按得出来</b>。
     </blockquote>
   </div>
 </section>
@@ -128,8 +133,21 @@
   <div class="wrap">
     <div class="head">
       <span class="sect-label">判定</span>
-      <h2>六条依据，按可信度排队</h2>
-      <p class="lede">同一件事有多个来源会给出互相矛盾的答案，没有明确顺序就是随机结果。</p>
+      <h2>为什么不能照抄配置</h2>
+      <p class="lede">配置里写了，不等于按得出来。有些键位表看着完整，其实一半是假的。</p>
+    </div>
+
+    <div class="prose" style="margin-bottom:40px">
+      <p>
+        每个键盘在 <code>/proc/bus/input/devices</code> 里都有一张「按键能力位图」，
+        看着像真相，其实经常是假的：很多 USB 键盘在 HID 描述符里只声明一个
+        <b>泛型全范围数组</b>（键盘页 <code>0x00–0xff</code>、Consumer 页
+        <code>0x0–0x33c</code>），内核就把整段区间全标成「有这个键」。
+      </p>
+      <p>
+        于是位图声称你有音量加键，按下去却毫无反应。反过来，打印屏幕键在 evdev 里
+        是 <code>KEY_SYSRQ</code>（码 99），而 210 是 Consumer 接口声明的假象。
+      </p>
     </div>
 
     <ol class="chain">
@@ -182,7 +200,7 @@
   </div>
 </section>
 
-<!-- 广告位 2：正文中段。此处放 300×250 或响应式方图最自然 -->
+<!-- 广告位 2：正文中段 -->
 <div class="wrap">
   <div class="ad-slot" data-filled="0" data-ad="mid">
     <div class="ad-label">广告</div>
@@ -206,12 +224,12 @@
           <button class="copy" type="button" data-copy="git clone https://github.com/Ayeez757/keymap-atlas
 cd keymap-atlas
 pip install --user .
-keymap-atlas report --outdir ~/快捷键">复制</button>
+keymap-atlas report --outdir ~/键位图鉴">复制</button>
         </div>
 <pre><span class="p">$</span> git clone https://github.com/Ayeez757/keymap-atlas
 <span class="p">$</span> cd keymap-atlas
 <span class="p">$</span> pip install --user .
-<span class="p">$</span> keymap-atlas report --outdir ~/快捷键</pre>
+<span class="p">$</span> keymap-atlas report --outdir ~/键位图鉴</pre>
       </div>
 
       <div class="stack">
@@ -302,16 +320,25 @@ keymap-atlas report --outdir ~/快捷键">复制</button>
 
     <div class="faq">
       <details>
-        <summary>为什么我的 PrintScreen 不出现在表里？</summary>
+        <summary>我的键盘没有音量键，表里会怎么写？</summary>
+        <p>会被标成「存疑」或「按不出」，并注明依据是 HID 描述符还是你的实测标记。
+          它不会因为配置文件里写了 <code>XF86AudioRaiseVolume</code> 就宣称你能按。</p>
+      </details>
+      <details>
+        <summary>为什么我的打印屏幕键不出现在表里？</summary>
         <p>evdev 里打印屏幕键是 <code>KEY_SYSRQ</code>（码 99），而不是 210。很多键盘的
-          Consumer 接口会在描述符里声明 210，于是位图看起来「有」，实际按不出来。
-          工具会把它标成三态里的某一档，而不是假装有。</p>
+          Consumer 接口会在描述符里声明 210，于是位图看起来「有」，实际按不出来。</p>
       </details>
       <details>
         <summary>必须以 niri 为桌面才能用吗？</summary>
         <p>不是。六层里只有第一层依赖 niri。缺哪一层就整层跳过，不会因为找不到文件就崩。
           输入法、终端、KDE、GNOME、内核层都是独立探测的，任意组合可用。
           其他合成器（Hyprland / Sway）的配置格式不同，未实现，也不假装支持。</p>
+      </details>
+      <details>
+        <summary>换键盘以后要重新按一遍吗？</summary>
+        <p>不用全部重按。指纹改变后旧记录标记为「来自旧键盘」；你换回原键盘时它们会自动
+          重新生效。只有新键盘上没验证过的键需要按。</p>
       </details>
       <details>
         <summary>为什么不读浏览器里的快捷键？</summary>
@@ -323,16 +350,6 @@ keymap-atlas report --outdir ~/快捷键">复制</button>
         <p>不会。程序只读配置文件；会写的地方只有输出目录，以及状态目录
           （<code>~/.config/keymap-atlas/</code>）里保存实测记录和键盘指纹。
           指纹是设备名与按键数的 SHA-1 前 16 位，不含任何个人信息。</p>
-      </details>
-      <details>
-        <summary>换键盘以后要重新按一遍吗？</summary>
-        <p>不用全部重按。指纹改变后旧记录标记为「来自旧键盘」；你换回原键盘时它们会自动
-          重新生效。只有新键盘上没验证过的键需要按。</p>
-      </details>
-      <details>
-        <summary>为什么表格里有的行标着「未生效」？</summary>
-        <p>因为那层属于别的桌面环境。你在 niri 会话里按 KDE 的快捷键当然没反应，
-          但迁移过去时它就是你要的参照。</p>
       </details>
     </div>
   </div>
@@ -358,7 +375,10 @@ keymap-atlas report --outdir ~/快捷键">复制</button>
   <div class="wrap">
     <div class="cols">
       <div>
-        <div class="who">键位图鉴<span class="latin">keymap-atlas</span></div>
+        <div class="who">
+          <img src="assets/logo.svg" width="20" height="20" alt="">
+          键位图鉴<span class="latin">keymap-atlas</span>
+        </div>
         <div style="margin-top:6px">MIT 许可 · 2026 Ayeez</div>
       </div>
       <div class="links">
@@ -376,14 +396,13 @@ keymap-atlas report --outdir ~/快捷键">复制</button>
 
 <script src="ad.js" defer></script>
 <script>
-/* 复制按钮：只有真的能写剪贴板时才绑定，失败就改回原文案 */
+/* 复制按钮 */
 document.querySelectorAll('.copy').forEach(function (b) {
   b.addEventListener('click', function () {
     var text = b.getAttribute('data-copy') || '';
     var done = function () {
       b.textContent = '已复制';
-      b.classList.add('done');
-      setTimeout(function () { b.textContent = '复制'; b.classList.remove('done'); }, 1600);
+      setTimeout(function () { b.textContent = '复制'; }, 1600);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(done, function () { b.textContent = '请手动选中'; });
@@ -392,6 +411,27 @@ document.querySelectorAll('.copy').forEach(function (b) {
     }
   });
 });
+
+/* 演示视频：只在用户主动点开声音时才解除静音，避免自动播放被拒 */
+(function () {
+  var btn = document.querySelector('[data-video="demo"]');
+  var v = document.getElementById('demo');
+  if (!btn || !v) return;
+  btn.addEventListener('click', function () {
+    v.muted = !v.muted;
+    btn.textContent = v.muted ? '🔈 静音' : '🔊 有声';
+    if (!v.muted && v.paused) v.play();
+  });
+  /* 省电：离开视口就暂停，回来再播 */
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { v.play().catch(function () {}); }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.25 }).observe(v);
+  }
+})();
 </script>
 </body>
 </html>
