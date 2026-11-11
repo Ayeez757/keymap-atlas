@@ -838,6 +838,12 @@ td .tag.off {
 }
 .ad-slot[data-filled="0"] { display: none; }
 
+/* 广告没填充时，让留白看起来是设计的一部分而不是破洞 */
+.ad-slot [data-ad-target] iframe {
+  background: var(--card);
+  border-radius: 8px;
+}
+
 .ad-label {
   font-family: var(--mono);
   font-size: 0.64rem;
