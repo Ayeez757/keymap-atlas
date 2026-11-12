@@ -42,8 +42,9 @@ class Row:
 
     @property
     def search_blob(self) -> str:
+        # 层名也进检索串：HTML 页内搜「Fn」要能高亮到固件功能键那一组。
         return (self.action + " " + self.keys_plain + " " + self.note
-                + " " + self.aliases).lower()
+                + " " + self.layer + " " + self.aliases).lower()
 
     @property
     def note_with_state(self) -> str:
