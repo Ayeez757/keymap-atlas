@@ -74,43 +74,6 @@ openssl s_client -connect keymap.ayeez.cn:443 -servername keymap.ayeez.cn </dev/
   | grep -E 'subject=|issuer=|Verify return code'
 ```
 
-## 广告怎么填
-
-广告代码已经在 `web/ad.js` 里，但**默认全部关闭**：`CFG` 里的 ID 为空时，
-`guard()` 会在 8 秒后把广告位还原成 `data-filled="0"`，CSS 让它们 `display:none`，
-页面上不留任何空洞。
-
-填三个值即可上线：
-
-```js
-const CFG = {
-  adsenseClient: "ca-pub-XXXXXXXXXXXXXXXX",   // AdSense 后台的发布商 ID
-  slots: { top: "1234567890", mid: "0987654321" },  // 两条广告单元的 data-ad-slot
-  adsterra: {
-    top: { key: "xxxxxxxxxxxxxxxx", width: 728, height: 90 },
-    mid: { key: "yyyyyyyyyyyyyyyy", width: 300, height: 250 },
-  },
-  ...
-```
-
-然后 `web/ads.txt` 里把占位行换成真行：
-
-```
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-```
-
-Adsterra 不提供公开的 `ads.txt` 记录（实测 `adsterra.com/ads.txt` 返回的是网页，
-不是纯文本），拿到 Publisher ID 后按它后台给的格式补一行。
-
-### 只放固定尺寸 Banner 的理由
-
-Adsterra 的 Popunder 会在用户点页面任意位置时开新窗口，直接触发 AdSense 的
-「鼓励意外点击」违规；Social Bar 会劫持返回键、改页面标题，伤 SEO。两者都不要。
-固定尺寸 Banner 是唯一能和安全并列的形式。每页 2–3 个位置足够，不要更多。
-
-Cloudflare 的 Rocket Loader 会打乱 `invoke.js` 的执行顺序，所以加载器给
-`<script>` 加了 `data-cfasync="false"`。
-
 ## 运维
 
 ```bash

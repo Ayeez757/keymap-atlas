@@ -7,6 +7,8 @@
 把一台 Linux 机器上散落在六处的快捷键收成一份中文速查表，
 顺带回答一个大多数工具回避的问题：这个键，你这把键盘到底按不按得出来。
 
+**[keymap.ayeez.cn](https://keymap.ayeez.cn/)** —— 在线版，直接搜，不用装。
+
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776ab?logo=python&logoColor=white)](https://www.python.org/)
 [![License MIT](https://img.shields.io/badge/license-MIT-3fb950)](LICENSE)
 [![Platform Linux](https://img.shields.io/badge/platform-Linux-f0c674?logo=linux&logoColor=black)](#兼容性)
@@ -173,8 +175,8 @@ src/keymap_atlas/
 cd deploy && docker compose up -d
 ```
 
-证书、隧道、广告位怎么填见 [docs/deploy.md](docs/deploy.md)。那个文档里记了一个
-容易踩的坑：隧道只透传 TLS 时，本地必须自己终结 TLS。
+证书与隧道怎么配见 [docs/deploy.md](docs/deploy.md)。那里记了一个容易踩的坑：
+隧道只透传 TLS 时，本地必须自己终结 TLS。
 
 ## 许可
 
