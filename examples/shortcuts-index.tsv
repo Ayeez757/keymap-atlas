@@ -1,140 +1,140 @@
-Super + Q	关闭当前窗口	按住不重复	1 · niri 合成器层	生效	chuangkou ck window guanbi gb close super
-Alt + F4	关闭当前窗口	按住不重复	1 · niri 合成器层	生效	chuangkou ck window guanbi gb close alt f4
-Super + F	最大化当前列		1 · niri 合成器层	生效	lie column zuidahua zdh maximize super
-Super + Shift + F	全屏切换		1 · niri 合成器层	生效	quanping qp fullscreen qiehuan qh switch super shift
-Super + Shift + T	浮动窗口 / 平铺 切换		1 · niri 合成器层	生效	chuangkou ck window fudong fd floating qiehuan qh switch super shift
-Super + Shift + V	在浮动窗口与平铺窗口间切换焦点		1 · niri 合成器层	生效	chuangkou ck window fudong fd floating qiehuan qh switch super shift
-Super + W	列内标签页显示 切换		1 · niri 合成器层	生效	lie column biaoqianye bqy tab qiehuan qh switch super
-Super + Shift + W	窗口规则编辑器		1 · niri 合成器层	生效	chuangkou ck window super shift
-Super + Shift + H	把当前列左移		1 · niri 合成器层	生效	lie column super shift
-Super + Shift + J	把当前窗口下移		1 · niri 合成器层	生效	chuangkou ck window super shift
-Super + Shift + K	把当前窗口上移		1 · niri 合成器层	生效	chuangkou ck window super shift
-Super + Shift + L	把当前列右移		1 · niri 合成器层	生效	lie column super shift
-Super + Ctrl + Home	把当前列移到最前		1 · niri 合成器层	生效	lie column super ctrl home
-Super + Ctrl + End	把当前列移到最后		1 · niri 合成器层	生效	lie column super ctrl end
-Super + [	窗口并入 / 推出到左列		1 · niri 合成器层	生效	chuangkou ck window lie column super [
-Super + ]	窗口并入 / 推出到右列		1 · niri 合成器层	生效	chuangkou ck window lie column super ]
-Super + .	把窗口从列中拆出来		1 · niri 合成器层	生效	chuangkou ck window lie column super .
-Super + R	循环切换预设列宽		1 · niri 合成器层	生效	lie column qiehuan qh switch super
-Super + Shift + R	循环切换预设窗口高度		1 · niri 合成器层	生效	chuangkou ck window qiehuan qh switch super shift
-Super + Ctrl + R	重置窗口高度		1 · niri 合成器层	生效	chuangkou ck window super ctrl
-Super + Ctrl + F	当前列扩展到可用宽度		1 · niri 合成器层	生效	lie column super ctrl
-Super + C	当前列居中		1 · niri 合成器层	生效	lie column juzhong jz center super
-Super + Ctrl + C	可见列整体居中		1 · niri 合成器层	生效	lie column juzhong jz center super ctrl
-Super + -	列宽 -10%（缩小）		1 · niri 合成器层	生效	lie column suoxiao sx super -
-Super + =	列宽 +10%（放大）		1 · niri 合成器层	生效	lie column fangda fd zoom super =
-Super + Shift + -	窗口高度 -10%（缩小）		1 · niri 合成器层	生效	chuangkou ck window suoxiao sx super shift -
-Super + Shift + =	窗口高度 +10%（放大）		1 · niri 合成器层	生效	chuangkou ck window fangda fd zoom super shift =
-Alt + Tab	在最近使用窗口间切换（下一个）（限定当前显示器）		1 · niri 合成器层	生效	chuangkou ck window xianshiqi xsq monitor qiehuan qh switch alt tab
-Alt + Shift + Tab	在最近使用窗口间切换（上一个）（限定当前显示器）		1 · niri 合成器层	生效	chuangkou ck window xianshiqi xsq monitor qiehuan qh switch alt shift tab
-Alt + `	在最近使用窗口间切换（下一个）（按应用分组）		1 · niri 合成器层	生效	chuangkou ck window qiehuan qh switch alt `
-Alt + Shift + `	在最近使用窗口间切换（上一个）（按应用分组）		1 · niri 合成器层	生效	chuangkou ck window qiehuan qh switch alt shift `
-Super + H	聚焦左边一列		1 · niri 合成器层	生效	lie column jujiao jj focus super
-Super + J	聚焦下方窗口		1 · niri 合成器层	生效	chuangkou ck window jujiao jj focus super
-Super + K	聚焦上方窗口		1 · niri 合成器层	生效	chuangkou ck window jujiao jj focus super
-Super + L	聚焦右边一列		1 · niri 合成器层	生效	lie column jujiao jj focus super
-Super + Home	聚焦最左一列		1 · niri 合成器层	生效	lie column jujiao jj focus super home
-Super + End	聚焦最右一列		1 · niri 合成器层	生效	lie column jujiao jj focus super end
-Super + Ctrl + H	聚焦左侧显示器		1 · niri 合成器层	生效	xianshiqi xsq monitor jujiao jj focus super ctrl
-Super + Ctrl + J	聚焦下方显示器		1 · niri 合成器层	生效	xianshiqi xsq monitor jujiao jj focus super ctrl
-Super + Ctrl + K	聚焦上方显示器		1 · niri 合成器层	生效	xianshiqi xsq monitor jujiao jj focus super ctrl
-Super + Ctrl + L	聚焦右侧显示器		1 · niri 合成器层	生效	xianshiqi xsq monitor jujiao jj focus super ctrl
-Super + O	切换工作区总览（Overview）	按住不重复	1 · niri 合成器层	生效	gongzuoqu gzq workspace zonglan zl overview qiehuan qh switch super
-Super + Tab	切换工作区总览（Overview）	按住不重复	1 · niri 合成器层	生效	gongzuoqu gzq workspace zonglan zl overview qiehuan qh switch super tab
-Super + PgDn	切到下一个工作区		1 · niri 合成器层	生效	gongzuoqu gzq workspace super pgdn
-Super + PgUp	切到上一个工作区		1 · niri 合成器层	生效	gongzuoqu gzq workspace super pgup
-Super + U	切到下一个工作区		1 · niri 合成器层	生效	gongzuoqu gzq workspace super
-Super + I	切到上一个工作区		1 · niri 合成器层	生效	gongzuoqu gzq workspace super
-Super + Ctrl + U	把当前列移到下一个工作区		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super ctrl
-Super + Ctrl + I	把当前列移到上一个工作区		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super ctrl
-Super + Alt + R	重命名当前工作区		1 · niri 合成器层	生效	gongzuoqu gzq workspace zhongmingming zmm rename super alt
-Super + Shift + PgDn	把本工作区顺序下移		1 · niri 合成器层	生效	gongzuoqu gzq workspace super shift pgdn
-Super + Shift + PgUp	把本工作区顺序上移		1 · niri 合成器层	生效	gongzuoqu gzq workspace super shift pgup
-Super + Shift + U	把本工作区顺序下移		1 · niri 合成器层	生效	gongzuoqu gzq workspace super shift
-Super + Shift + I	把本工作区顺序上移		1 · niri 合成器层	生效	gongzuoqu gzq workspace super shift
-Super + 1	切换到工作区 1		1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 1
-Super + 2	切换到工作区 2		1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 2
-Super + 3	切换到工作区 3		1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 3
-Super + 4	切换到工作区 4		1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 4
-Super + 5	切换到工作区 5		1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 5
-Super + 6	切换到工作区 6		1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 6
-Super + 7	切换到工作区 7		1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 7
-Super + 8	切换到工作区 8		1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 8
-Super + 9	切换到工作区 9		1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 9
-Super + Shift + 1	把当前列移到工作区 1		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 1
-Super + Shift + 2	把当前列移到工作区 2		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 2
-Super + Shift + 3	把当前列移到工作区 3		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 3
-Super + Shift + 4	把当前列移到工作区 4		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 4
-Super + Shift + 5	把当前列移到工作区 5		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 5
-Super + Shift + 6	把当前列移到工作区 6		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 6
-Super + Shift + 7	把当前列移到工作区 7		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 7
-Super + Shift + 8	把当前列移到工作区 8		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 8
-Super + Shift + 9	把当前列移到工作区 9		1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 9
-Super + Shift + Ctrl + H	把当前列移到左侧显示器		1 · niri 合成器层	生效	lie column xianshiqi xsq monitor super shift ctrl
-Super + Shift + Ctrl + J	把当前列移到下方显示器		1 · niri 合成器层	生效	lie column xianshiqi xsq monitor super shift ctrl
-Super + Shift + Ctrl + K	把当前列移到上方显示器		1 · niri 合成器层	生效	lie column xianshiqi xsq monitor super shift ctrl
-Super + Shift + Ctrl + L	把当前列移到右侧显示器		1 · niri 合成器层	生效	lie column xianshiqi xsq monitor super shift ctrl
-Super + P	循环切换显示器配置方案		1 · niri 合成器层	生效	xianshiqi xsq monitor qiehuan qh switch super
-Super + Shift + P	关闭显示器（省电）		1 · niri 合成器层	生效	xianshiqi xsq monitor guanbi gb close super shift
-Super + A	控制中心（音量、亮度、网络等）		1 · niri 合成器层	生效	yinliang yl volume liangdu ld brightness super
-Super + Alt + =	系统音量 +3%		1 · niri 合成器层	生效	yinliang yl volume super alt =
-Super + Alt + -	系统音量 -3%		1 · niri 合成器层	生效	yinliang yl volume super alt -
-Super + Alt + 0	系统静音 切换		1 · niri 合成器层	生效	jingyin jy mute qiehuan qh switch super alt 0
-Super + Alt + Shift + =	屏幕亮度 +10%		1 · niri 合成器层	生效	liangdu ld brightness super alt shift =
-Super + Alt + Shift + -	屏幕亮度 -10%		1 · niri 合成器层	生效	liangdu ld brightness super alt shift -
+Super + Q	关闭当前窗口	所有 HID 描述符都没覆盖 → 一定按不出；按住不重复	1 · niri 合成器层	生效	chuangkou ck window guanbi gb close super
+Alt + F4	关闭当前窗口	所有 HID 描述符都没覆盖 → 一定按不出；按住不重复	1 · niri 合成器层	生效	chuangkou ck window guanbi gb close alt f4
+Super + F	最大化当前列	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column zuidahua zdh maximize super
+Super + Shift + F	全屏切换	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	quanping qp fullscreen qiehuan qh switch super shift
+Super + Shift + T	浮动窗口 / 平铺 切换	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window fudong fd floating qiehuan qh switch super shift
+Super + Shift + V	在浮动窗口与平铺窗口间切换焦点	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window fudong fd floating qiehuan qh switch super shift
+Super + W	列内标签页显示 切换	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column biaoqianye bqy tab qiehuan qh switch super
+Super + Shift + W	窗口规则编辑器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window super shift
+Super + Shift + H	把当前列左移	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column super shift
+Super + Shift + J	把当前窗口下移	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window super shift
+Super + Shift + K	把当前窗口上移	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window super shift
+Super + Shift + L	把当前列右移	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column super shift
+Super + Ctrl + Home	把当前列移到最前	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column super ctrl home
+Super + Ctrl + End	把当前列移到最后	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column super ctrl end
+Super + [	窗口并入 / 推出到左列	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window lie column super [
+Super + ]	窗口并入 / 推出到右列	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window lie column super ]
+Super + .	把窗口从列中拆出来	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window lie column super .
+Super + R	循环切换预设列宽	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column qiehuan qh switch super
+Super + Shift + R	循环切换预设窗口高度	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window qiehuan qh switch super shift
+Super + Ctrl + R	重置窗口高度	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window super ctrl
+Super + Ctrl + F	当前列扩展到可用宽度	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column super ctrl
+Super + C	当前列居中	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column juzhong jz center super
+Super + Ctrl + C	可见列整体居中	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column juzhong jz center super ctrl
+Super + -	列宽 -10%（缩小）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column suoxiao sx super -
+Super + =	列宽 +10%（放大）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column fangda fd zoom super =
+Super + Shift + -	窗口高度 -10%（缩小）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window suoxiao sx super shift -
+Super + Shift + =	窗口高度 +10%（放大）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window fangda fd zoom super shift =
+Alt + Tab	在最近使用窗口间切换（下一个）（限定当前显示器）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window xianshiqi xsq monitor qiehuan qh switch alt tab
+Alt + Shift + Tab	在最近使用窗口间切换（上一个）（限定当前显示器）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window xianshiqi xsq monitor qiehuan qh switch alt shift tab
+Alt + `	在最近使用窗口间切换（下一个）（按应用分组）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window qiehuan qh switch alt `
+Alt + Shift + `	在最近使用窗口间切换（上一个）（按应用分组）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window qiehuan qh switch alt shift `
+Super + H	聚焦左边一列	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column jujiao jj focus super
+Super + J	聚焦下方窗口	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window jujiao jj focus super
+Super + K	聚焦上方窗口	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	chuangkou ck window jujiao jj focus super
+Super + L	聚焦右边一列	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column jujiao jj focus super
+Super + Home	聚焦最左一列	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column jujiao jj focus super home
+Super + End	聚焦最右一列	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column jujiao jj focus super end
+Super + Ctrl + H	聚焦左侧显示器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	xianshiqi xsq monitor jujiao jj focus super ctrl
+Super + Ctrl + J	聚焦下方显示器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	xianshiqi xsq monitor jujiao jj focus super ctrl
+Super + Ctrl + K	聚焦上方显示器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	xianshiqi xsq monitor jujiao jj focus super ctrl
+Super + Ctrl + L	聚焦右侧显示器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	xianshiqi xsq monitor jujiao jj focus super ctrl
+Super + O	切换工作区总览（Overview）	所有 HID 描述符都没覆盖 → 一定按不出；按住不重复	1 · niri 合成器层	生效	gongzuoqu gzq workspace zonglan zl overview qiehuan qh switch super
+Super + Tab	切换工作区总览（Overview）	所有 HID 描述符都没覆盖 → 一定按不出；按住不重复	1 · niri 合成器层	生效	gongzuoqu gzq workspace zonglan zl overview qiehuan qh switch super tab
+Super + PgDn	切到下一个工作区	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace super pgdn
+Super + PgUp	切到上一个工作区	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace super pgup
+Super + U	切到下一个工作区	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace super
+Super + I	切到上一个工作区	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace super
+Super + Ctrl + U	把当前列移到下一个工作区	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super ctrl
+Super + Ctrl + I	把当前列移到上一个工作区	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super ctrl
+Super + Alt + R	重命名当前工作区	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace zhongmingming zmm rename super alt
+Super + Shift + PgDn	把本工作区顺序下移	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace super shift pgdn
+Super + Shift + PgUp	把本工作区顺序上移	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace super shift pgup
+Super + Shift + U	把本工作区顺序下移	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace super shift
+Super + Shift + I	把本工作区顺序上移	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace super shift
+Super + 1	切换到工作区 1	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 1
+Super + 2	切换到工作区 2	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 2
+Super + 3	切换到工作区 3	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 3
+Super + 4	切换到工作区 4	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 4
+Super + 5	切换到工作区 5	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 5
+Super + 6	切换到工作区 6	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 6
+Super + 7	切换到工作区 7	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 7
+Super + 8	切换到工作区 8	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 8
+Super + 9	切换到工作区 9	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	gongzuoqu gzq workspace qiehuan qh switch super 9
+Super + Shift + 1	把当前列移到工作区 1	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 1
+Super + Shift + 2	把当前列移到工作区 2	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 2
+Super + Shift + 3	把当前列移到工作区 3	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 3
+Super + Shift + 4	把当前列移到工作区 4	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 4
+Super + Shift + 5	把当前列移到工作区 5	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 5
+Super + Shift + 6	把当前列移到工作区 6	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 6
+Super + Shift + 7	把当前列移到工作区 7	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 7
+Super + Shift + 8	把当前列移到工作区 8	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 8
+Super + Shift + 9	把当前列移到工作区 9	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column gongzuoqu gzq workspace super shift 9
+Super + Shift + Ctrl + H	把当前列移到左侧显示器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column xianshiqi xsq monitor super shift ctrl
+Super + Shift + Ctrl + J	把当前列移到下方显示器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column xianshiqi xsq monitor super shift ctrl
+Super + Shift + Ctrl + K	把当前列移到上方显示器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column xianshiqi xsq monitor super shift ctrl
+Super + Shift + Ctrl + L	把当前列移到右侧显示器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	lie column xianshiqi xsq monitor super shift ctrl
+Super + P	循环切换显示器配置方案	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	xianshiqi xsq monitor qiehuan qh switch super
+Super + Shift + P	关闭显示器（省电）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	xianshiqi xsq monitor guanbi gb close super shift
+Super + A	控制中心（音量、亮度、网络等）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	yinliang yl volume liangdu ld brightness super
+Super + Alt + =	系统音量 +3%	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	yinliang yl volume super alt =
+Super + Alt + -	系统音量 -3%	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	yinliang yl volume super alt -
+Super + Alt + 0	系统静音 切换	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jingyin jy mute qiehuan qh switch super alt 0
+Super + Alt + Shift + =	屏幕亮度 +10%	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	liangdu ld brightness super alt shift =
+Super + Alt + Shift + -	屏幕亮度 -10%	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	liangdu ld brightness super alt shift -
 PrtSc	截图：区域截图	你标记为「本机键盘没有这个键」	1 · niri 合成器层	生效	jietu jt screenshot prtsc
 Ctrl + PrtSc	截图：全屏截图	你标记为「本机键盘没有这个键」	1 · niri 合成器层	生效	jietu jt screenshot quanping qp fullscreen ctrl prtsc
 Alt + PrtSc	截图：窗口截图	你标记为「本机键盘没有这个键」	1 · niri 合成器层	生效	jietu jt screenshot chuangkou ck window alt prtsc
-Super + Alt + S	截图：区域截图		1 · niri 合成器层	生效	jietu jt screenshot super alt
-Super + Alt + Shift + F	截图：全屏截图		1 · niri 合成器层	生效	jietu jt screenshot quanping qp fullscreen super alt shift
-Super + Alt + Ctrl + S	截图：窗口截图		1 · niri 合成器层	生效	jietu jt screenshot chuangkou ck window super alt ctrl
-Super + Shift + /	快捷键面板		1 · niri 合成器层	生效	kuaijiejian kjj shortcut super shift /
-Super + T	打开终端		1 · niri 合成器层	生效	zhongduan zd terminal super
-Super + Enter	打开终端		1 · niri 合成器层	生效	zhongduan zd terminal super enter
-Super + Space	打开 / 关闭 启动器 Spotlight		1 · niri 合成器层	生效	qidongqi qdq launcher guanbi gb close super space
-Alt + Space	打开 / 关闭 顶部 Spotlight 输入条		1 · niri 合成器层	生效	guanbi gb close alt space
-Super + V	剪贴板历史		1 · niri 合成器层	生效	jiantieban jtb clipboard super
-Super + M	打开 Dash 面板（媒体页）		1 · niri 合成器层	生效	super
-Super + X	电源菜单（关机 / 重启 / 注销）		1 · niri 合成器层	生效	dianyuan dy power chongqi cq reboot super
-Super + D	打开 Dash 面板		1 · niri 合成器层	生效	super
-Super + Shift + C	屏幕取色器		1 · niri 合成器层	生效	quse qs color super shift
-Super + Alt + N	夜间模式（护眼色温）		1 · niri 合成器层	生效	yejian yj night super alt
-Super + Alt + I	阻止休眠 / 息屏 切换		1 · niri 合成器层	生效	xiumian xm inhibit qiehuan qh switch super alt
-Super + ,	DMS 设置面板		1 · niri 合成器层	生效	shezhi sz settings super ,
-Super + Y	打开 Dash 面板（壁纸页）		1 · niri 合成器层	生效	bizhi bz wallpaper super
-Super + N	便签		1 · niri 合成器层	生效	bianqian bq notepad super
-Super + Shift + N	便签（展开）		1 · niri 合成器层	生效	bianqian bq notepad super shift
-Super + Ctrl + N	通知中心		1 · niri 合成器层	生效	tongzhi tz notification super ctrl
-Super + Alt + L	锁屏		1 · niri 合成器层	生效	suoping sp lock super alt
-Super + Shift + E	退出 niri（关闭整个会话）		1 · niri 合成器层	生效	guanbi gb close tuichu tc quit super shift
-Ctrl + Alt + Del	进程管理器		1 · niri 合成器层	生效	jincheng jc process ctrl alt del
-Ctrl + Alt + M	进程管理器		1 · niri 合成器层	生效	jincheng jc process ctrl alt
-Super + Esc	切换「快捷键抑制」（把按键交还应用）	应用接管按键时仍生效	1 · niri 合成器层	生效	qiehuan qh switch kuaijiejian kjj shortcut super esc
-音量+	系统音量 +3%	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	yinliang yl volume 音量
-音量-	系统音量 -3%	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	yinliang yl volume 音量-
-静音	系统静音 切换	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	jingyin jy mute qiehuan qh switch 静音
-麦静音	麦克风静音 切换	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	jingyin jy mute maikefeng mkf mic qiehuan qh switch 麦静音
-播放	播放 / 暂停（当前播放器）	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	bofang bf play zanting zt pause 播放
-播放	播放 / 暂停（当前播放器）	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	bofang bf play zanting zt pause 播放
-上一曲	上一曲	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	shangyiqu syq prev 上一曲
-下一曲	下一曲	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	xiayiqu xyq next 下一曲
-Ctrl + 音量+	播放器音量 +3%	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	yinliang yl volume bofang bf play ctrl 音量
-Ctrl + 音量-	播放器音量 -3%	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	yinliang yl volume bofang bf play ctrl 音量-
-亮度+	屏幕亮度 +5%	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	liangdu ld brightness 亮度
-亮度-	屏幕亮度 -5%	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效	1 · niri 合成器层	生效	liangdu ld brightness 亮度-
-触控板	触摸板开关	只被泛型全范围覆盖 → 描述符无法判定，需实测；锁屏时也生效；按住不重复	1 · niri 合成器层	生效	chumoban cmb touchpad 触控板
+Super + Alt + S	截图：区域截图	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jietu jt screenshot super alt
+Super + Alt + Shift + F	截图：全屏截图	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jietu jt screenshot quanping qp fullscreen super alt shift
+Super + Alt + Ctrl + S	截图：窗口截图	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jietu jt screenshot chuangkou ck window super alt ctrl
+Super + Shift + /	快捷键面板	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	kuaijiejian kjj shortcut super shift /
+Super + T	打开终端	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	zhongduan zd terminal super
+Super + Enter	打开终端	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	zhongduan zd terminal super enter
+Super + Space	打开 / 关闭 启动器 Spotlight	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	qidongqi qdq launcher guanbi gb close super space
+Alt + Space	打开 / 关闭 顶部 Spotlight 输入条	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	guanbi gb close alt space
+Super + V	剪贴板历史	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jiantieban jtb clipboard super
+Super + M	打开 Dash 面板（媒体页）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	super
+Super + X	电源菜单（关机 / 重启 / 注销）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	dianyuan dy power chongqi cq reboot super
+Super + D	打开 Dash 面板	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	super
+Super + Shift + C	屏幕取色器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	quse qs color super shift
+Super + Alt + N	夜间模式（护眼色温）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	yejian yj night super alt
+Super + Alt + I	阻止休眠 / 息屏 切换	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	xiumian xm inhibit qiehuan qh switch super alt
+Super + ,	DMS 设置面板	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	shezhi sz settings super ,
+Super + Y	打开 Dash 面板（壁纸页）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	bizhi bz wallpaper super
+Super + N	便签	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	bianqian bq notepad super
+Super + Shift + N	便签（展开）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	bianqian bq notepad super shift
+Super + Ctrl + N	通知中心	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	tongzhi tz notification super ctrl
+Super + Alt + L	锁屏	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	suoping sp lock super alt
+Super + Shift + E	退出 niri（关闭整个会话）	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	guanbi gb close tuichu tc quit super shift
+Ctrl + Alt + Del	进程管理器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jincheng jc process ctrl alt del
+Ctrl + Alt + M	进程管理器	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jincheng jc process ctrl alt
+Super + Esc	切换「快捷键抑制」（把按键交还应用）	所有 HID 描述符都没覆盖 → 一定按不出；应用接管按键时仍生效	1 · niri 合成器层	生效	qiehuan qh switch kuaijiejian kjj shortcut super esc
+音量+	系统音量 +3%	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	yinliang yl volume 音量
+音量-	系统音量 -3%	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	yinliang yl volume 音量-
+静音	系统静音 切换	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	jingyin jy mute qiehuan qh switch 静音
+麦静音	麦克风静音 切换	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	jingyin jy mute maikefeng mkf mic qiehuan qh switch 麦静音
+播放	播放 / 暂停（当前播放器）	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	bofang bf play zanting zt pause 播放
+播放	播放 / 暂停（当前播放器）	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	bofang bf play zanting zt pause 播放
+上一曲	上一曲	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	shangyiqu syq prev 上一曲
+下一曲	下一曲	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	xiayiqu xyq next 下一曲
+Ctrl + 音量+	播放器音量 +3%	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	yinliang yl volume bofang bf play ctrl 音量
+Ctrl + 音量-	播放器音量 -3%	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	yinliang yl volume bofang bf play ctrl 音量-
+亮度+	屏幕亮度 +5%	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	liangdu ld brightness 亮度
+亮度-	屏幕亮度 -5%	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效	1 · niri 合成器层	生效	liangdu ld brightness 亮度-
+触控板	触摸板开关	所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效；按住不重复	1 · niri 合成器层	生效	chumoban cmb touchpad 触控板
 触控板开	显示触摸板状态提示	；锁屏时也生效；按住不重复	1 · niri 合成器层	生效	chumoban cmb touchpad 触控板开
 触控板关	显示触摸板状态提示	；锁屏时也生效；按住不重复	1 · niri 合成器层	生效	chumoban cmb touchpad 触控板关
-Launch1	截图：区域截图	只被泛型全范围覆盖 → 描述符无法判定，需实测	1 · niri 合成器层	生效	jietu jt screenshot launch1
-Ctrl + Launch1	截图：全屏截图	只被泛型全范围覆盖 → 描述符无法判定，需实测	1 · niri 合成器层	生效	jietu jt screenshot quanping qp fullscreen ctrl launch1
-Alt + Launch1	截图：窗口截图	只被泛型全范围覆盖 → 描述符无法判定，需实测	1 · niri 合成器层	生效	jietu jt screenshot chuangkou ck window alt launch1
-Super + Alt + /	运行 bash		1 · niri 合成器层	生效	super alt /
-Super + Alt + Shift + /	运行 bash		1 · niri 合成器层	生效	super alt shift /
-Super + Alt + Shift + V	运行 screencast-menu		1 · niri 合成器层	生效	super alt shift
-Super + Alt + Shift + R	运行 screencast		1 · niri 合成器层	生效	super alt shift
-Super + Alt + Shift + S	运行 screencast		1 · niri 合成器层	生效	super alt shift
-Super + Alt + Shift + M	运行 screencast		1 · niri 合成器层	生效	super alt shift
-Super + Alt + Shift + N	运行 screencast		1 · niri 合成器层	生效	super alt shift
+Launch1	截图：区域截图	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jietu jt screenshot launch1
+Ctrl + Launch1	截图：全屏截图	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jietu jt screenshot quanping qp fullscreen ctrl launch1
+Alt + Launch1	截图：窗口截图	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	jietu jt screenshot chuangkou ck window alt launch1
+Super + Alt + /	运行 bash	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	super alt /
+Super + Alt + Shift + /	运行 bash	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	super alt shift /
+Super + Alt + Shift + V	运行 screencast-menu	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	super alt shift
+Super + Alt + Shift + R	运行 screencast	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	super alt shift
+Super + Alt + Shift + S	运行 screencast	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	super alt shift
+Super + Alt + Shift + M	运行 screencast	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	super alt shift
+Super + Alt + Shift + N	运行 screencast	所有 HID 描述符都没覆盖 → 一定按不出	1 · niri 合成器层	生效	super alt shift
 Ctrl + Space	激活 / 关闭当前输入法	配置里全是注释 → fcitx5 内置默认值	2 · 输入法层（fcitx5）	生效	guanbi gb close shurufa srf ime ctrl space
 左Shift	切换中英文（临时切换）	配置里全是注释 → fcitx5 内置默认值	2 · 输入法层（fcitx5）	生效	qiehuan qh switch zhongyingwen zyw 左shift
 Ctrl + Alt + P	切换预编辑文本显示	配置里全是注释 → fcitx5 内置默认值	2 · 输入法层（fcitx5）	生效	qiehuan qh switch ctrl alt
