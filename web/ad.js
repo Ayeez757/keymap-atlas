@@ -14,7 +14,7 @@
   "use strict";
 
   var CFG = {
-    adsenseClient: "",            // ca-pub-XXXXXXXXXXXXXXXX，留空则不加载
+    adsenseClient: "ca-pub-7074159807555116",
     slots: { top: "", mid: "" },  // AdSense 广告单元 id，留空则用 Adsterra
 
     adsterra: {
@@ -38,6 +38,25 @@
   };
 
   var fired = Object.create(null);
+
+  /* 站点是否深色。广告素材的配色改不了，但可以把承载它的画布染成同一色调，
+   * 避免深色页面上出现一块刺眼的白底。 */
+  function isDark() {
+    try {
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } catch (e) { return false; }
+  }
+
+  /* 从页面实际计算出的背景色，保证 iframe 底色和站点一致（而不是硬编码） */
+  function pageBg() {
+    try {
+      var v = getComputedStyle(document.documentElement).getPropertyValue("--bg-soft").trim();
+      if (v) return v;
+      var b = getComputedStyle(document.body).backgroundColor;
+      if (b && b !== "rgba(0, 0, 0, 0)" && b !== "transparent") return b;
+    } catch (e) { /* 老浏览器兜底 */ }
+    return isDark() ? "#0e1013" : "#f6f6f4";
+  }
 
   function el(tag, attrs, text) {
     var n = document.createElement(tag);
@@ -102,11 +121,15 @@
     markFilled(slot);
 
     var src = "https://" + CFG.adsterra.host + "/" + CFG.adsterra.path + "/" + spec.key;
+    var dark = isDark();
+    var bg = pageBg();
     var doc = f.contentDocument;
     doc.open();
     doc.write(
       '<!doctype html><html><head><meta charset="utf-8">' +
-      '<style>html,body{margin:0;padding:0;overflow:hidden;background:transparent}</style></head><body>' +
+      '<meta name="color-scheme" content="' + (dark ? "dark light" : "light dark") + '">' +
+      '<style>html,body{margin:0;padding:0;overflow:hidden;background:' + bg + ';' +
+      'color-scheme:' + (dark ? "dark light" : "light dark") + '}</style></head><body>' +
       '<script type="text/javascript">' +
       'atOptions = { "key": "' + spec.key + '", "format": "iframe", ' +
       '"height": ' + spec.height + ', "width": ' + spec.width + ', "params": {} };' +
@@ -170,7 +193,10 @@
     var slots = [].slice.call(document.querySelectorAll(".ad-slot"));
     if (!slots.length) return;
 
-    if (CFG.adsenseClient) {
+    // 只有真的配了广告单元 id 才去拉 AdSense 的脚本；
+    // 光有 client 号时不必加载，省一个第三方请求（站点验证走 meta 标签）。
+    var hasAdsenseSlot = !!(CFG.slots.top || CFG.slots.mid);
+    if (CFG.adsenseClient && hasAdsenseSlot) {
       var s = loadScript(
         "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" +
           encodeURIComponent(CFG.adsenseClient),

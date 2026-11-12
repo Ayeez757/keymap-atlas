@@ -835,13 +835,35 @@ td .tag.off {
   padding: 34px 0;
   text-align: center;
   border-top: 1px solid var(--line-soft);
+  /* 广告位本身也吃主题变量：深色模式下底板是深的，素材贴上去不像白补丁 */
+  color-scheme: dark light;
 }
 .ad-slot[data-filled="0"] { display: none; }
 
-/* 广告没填充时，让留白看起来是设计的一部分而不是破洞 */
-.ad-slot [data-ad-target] iframe {
-  background: var(--card);
-  border-radius: 8px;
+/* 广告承载框：深色底板 + 圆角，让外来的素材“嵌”在页面里而不是浮在上面。
+ * 注意素材本身的配色由广告主决定，这里只能控制它周围的那一圈。 */
+.ad-slot [data-ad-target] {
+  display: inline-block;
+  max-width: 100%;
+  padding: 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: var(--bg-soft);
+  line-height: 0;
+}
+.ad-slot [data-ad-target] iframe,
+.ad-slot [data-ad-target] ins {
+  display: block;
+  border: 0;
+  border-radius: 6px;
+  background: var(--bg-soft);
+}
+
+/* 深色模式下给承载框一点内发光，边界更清楚，也不刺眼 */
+@media (prefers-color-scheme: dark) {
+  .ad-slot [data-ad-target] {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .03);
+  }
 }
 
 .ad-label {
