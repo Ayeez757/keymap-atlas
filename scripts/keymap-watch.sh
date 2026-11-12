@@ -93,6 +93,8 @@ rebuild() {
         return 1
     fi
 
+    # 给设备注册留点时间再读，免得把半插状态当成最终状态
+    sleep "${KEYMAP_ATLAS_SETTLE_STEP:-1.0}"
     cur=$(probe_fp)
     local stored
     stored=$(stored_fp)
@@ -119,14 +121,30 @@ if [[ $ONCE -eq 1 ]]; then
     exit 0
 fi
 
+# 一次插拔会连发十几条事件（一个 Dongle 就挂 7 个 input 节点），
+# 而且设备是一个个注册的，指纹在过程中会连续变化。所以不能「事件来了就重建」，
+# 必须先等指纹稳定下来：连续两次读数相同才算插拔结束。
+# 返回 0 表示稳定且与上次落盘不同（需要重建），1 表示不需要重建。
+settle_and_check() {
+    local prev="" cur="" i
+    for i in $(seq 1 "${KEYMAP_ATLAS_SETTLE_TRIES:-12}"); do
+        cur=$(probe_fp)
+        if [[ -n "$cur" && "$cur" == "$prev" ]]; then
+            break
+        fi
+        prev="$cur"
+        sleep "${KEYMAP_ATLAS_SETTLE_STEP:-1.0}"
+    done
+    [[ -n "$cur" ]] || return 1
+    [[ "$cur" != "$(stored_fp)" ]] || return 1
+    return 0
+}
+
 say "开始监视键盘插拔（当前指纹 $(stored_fp)）…… Ctrl+C 结束"
-# 一次插拔会连发多条事件（一个 Dongle 有 7 个 input 节点），必须去抖
 udevadm monitor --subsystem-match=input --property 2>/dev/null | while read -r line; do
     case "$line" in
         ACTION=add|ACTION=remove|ACTION=change)
-            sleep 1.2
-            cur=$(probe_fp)
-            if [[ -n "$cur" && "$cur" != "$(stored_fp)" ]]; then
+            if settle_and_check; then
                 rebuild
             fi
             ;;
