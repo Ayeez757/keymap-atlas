@@ -155,12 +155,18 @@
       <li><span class="what">探针实测按出过</span><span class="res yes">可按</span></li>
       <li><span class="what">HID 描述符点名了该 usage</span><span class="res yes">可按</span></li>
       <li><span class="what">你标记「我这把键盘没有」</span><span class="res no">按不出</span></li>
-      <li><span class="what">HID 描述符完全没覆盖</span><span class="res no">按不出</span></li>
+      <li><span class="what">描述符有这一页、但没覆盖它</span><span class="res no">按不出</span></li>
+      <li><span class="what">固件 / ACPI 接口上报它（Fn 行）</span><span class="res yes">可按</span></li>
       <li><span class="what">只被泛型范围覆盖，文件层面无从判定</span><span class="res maybe">存疑</span></li>
       <li><span class="what"><code>/proc</code> 位图声称有</span><span class="res yes">可按，但注明未实测</span></li>
     </ol>
 
     <p class="note" style="margin-top:30px">
+      第 4 条只在描述符<b>有</b>那一页时成立。笔记本内置键盘常把键表交给 ACPI，
+      描述符里只剩厂商页——那不是「一定按不出」，而是文件层面看不出来。
+      反过来，亮度、音量这类键会出现在固件接口的位图里，所以单独列成一组。
+    </p>
+    <p class="note">
       实测记录属于上一把键盘时不会删除，而是降级为「存疑」；
       换回原键盘它们会自动重新生效。删掉最省事，但那意味着每次换键盘都要重按 66 个键。
     </p>
