@@ -2,16 +2,16 @@
 
 > 当前检测到的键盘：**AT Translated Set 2 keyboard**  
 > 键盘指纹：`265ce5c7254b088d`（换键盘后自动重算）  
-> 生成时间：2026-11-12 23:58 CST
+> 生成时间：2026-11-13 00:58 CST
 
-从 6 个可静态解析的层收集到 **338** 条快捷键。
+从 6 个可静态解析的层收集到 **350** 条快捷键。
 
 | 层级 | 条数 | 状态 | 来源 |
 |---|---|---|---|
 | 1 · niri 合成器层 | 137 | 生效 | `/home/ayeez/.config/niri/dms/binds.kdl` |
 | 2 · 输入法层（fcitx5） | 7 | 生效 | `/home/ayeez/.config/fcitx5/config` |
 | 3 · 终端应用层（Ghostty） | 6 | 生效 | `/home/ayeez/.config/ghostty/config` |
-| 4 · 内核 / 硬件层 | 16 | 生效 | `busctl org.freedesktop.login1.Manager` |
+| 4 · 内核 / 硬件层 | 28 | 生效 | `busctl org.freedesktop.login1.Manager` |
 | 5 · KDE 全局快捷键层 | 114 | 未生效 | `/home/ayeez/.config/kglobalshortcutsrc` |
 | 6 · GNOME 键位层 | 58 | 未生效 | `gsettings org.gnome.desktop.wm.keybindings activate-window-menu` |
 
@@ -23,110 +23,110 @@
 
 | 按键 | 功能 | 备注 |
 |---|---|---|
-| `Super + Q` | 关闭当前窗口 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；按住不重复 |
-| `Alt + F4` | 关闭当前窗口 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；按住不重复 |
-| `Super + F` | 最大化当前列 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + F` | 全屏切换 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + T` | 浮动窗口 / 平铺 切换 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + V` | 在浮动窗口与平铺窗口间切换焦点 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + W` | 列内标签页显示 切换 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + W` | 窗口规则编辑器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + H` | 把当前列左移 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + J` | 把当前窗口下移 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + K` | 把当前窗口上移 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + L` | 把当前列右移 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + Home` | 把当前列移到最前 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + End` | 把当前列移到最后 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + [` | 窗口并入 / 推出到左列 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + ]` | 窗口并入 / 推出到右列 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + .` | 把窗口从列中拆出来 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + R` | 循环切换预设列宽 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + R` | 循环切换预设窗口高度 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + R` | 重置窗口高度 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + F` | 当前列扩展到可用宽度 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + C` | 当前列居中 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + C` | 可见列整体居中 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + -` | 列宽 -10%（缩小） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + =` | 列宽 +10%（放大） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + -` | 窗口高度 -10%（缩小） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + =` | 窗口高度 +10%（放大） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
+| `Super + Q` | 关闭当前窗口 | ✅ 按住不重复 |
+| `Alt + F4` | 关闭当前窗口 | ✅ 按住不重复 |
+| `Super + F` | 最大化当前列 | ✅  |
+| `Super + Shift + F` | 全屏切换 | ✅  |
+| `Super + Shift + T` | 浮动窗口 / 平铺 切换 | ✅  |
+| `Super + Shift + V` | 在浮动窗口与平铺窗口间切换焦点 | ✅  |
+| `Super + W` | 列内标签页显示 切换 | ✅  |
+| `Super + Shift + W` | 窗口规则编辑器 | ✅  |
+| `Super + Shift + H` | 把当前列左移 | ✅  |
+| `Super + Shift + J` | 把当前窗口下移 | ✅  |
+| `Super + Shift + K` | 把当前窗口上移 | ✅  |
+| `Super + Shift + L` | 把当前列右移 | ✅  |
+| `Super + Ctrl + Home` | 把当前列移到最前 | ✅ 由固件接口上报（Intel HID events），未实测 |
+| `Super + Ctrl + End` | 把当前列移到最后 | ✅ 由固件接口上报（Intel HID events），未实测 |
+| `Super + [` | 窗口并入 / 推出到左列 | ✅  |
+| `Super + ]` | 窗口并入 / 推出到右列 | ✅  |
+| `Super + .` | 把窗口从列中拆出来 | ✅  |
+| `Super + R` | 循环切换预设列宽 | ✅  |
+| `Super + Shift + R` | 循环切换预设窗口高度 | ✅  |
+| `Super + Ctrl + R` | 重置窗口高度 | ✅  |
+| `Super + Ctrl + F` | 当前列扩展到可用宽度 | ✅  |
+| `Super + C` | 当前列居中 | ✅  |
+| `Super + Ctrl + C` | 可见列整体居中 | ✅  |
+| `Super + -` | 列宽 -10%（缩小） | ✅  |
+| `Super + =` | 列宽 +10%（放大） | ✅  |
+| `Super + Shift + -` | 窗口高度 -10%（缩小） | ✅  |
+| `Super + Shift + =` | 窗口高度 +10%（放大） | ✅  |
 
 ## 1 · niri 合成器层 › 焦点 / 窗口切换（14 条）
 
 | 按键 | 功能 | 备注 |
 |---|---|---|
-| `Alt + Tab` | 在最近使用窗口间切换（下一个）（限定当前显示器） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Alt + Shift + Tab` | 在最近使用窗口间切换（上一个）（限定当前显示器） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `` Alt + ` `` | 在最近使用窗口间切换（下一个）（按应用分组） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `` Alt + Shift + ` `` | 在最近使用窗口间切换（上一个）（按应用分组） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + H` | 聚焦左边一列 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + J` | 聚焦下方窗口 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + K` | 聚焦上方窗口 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + L` | 聚焦右边一列 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Home` | 聚焦最左一列 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + End` | 聚焦最右一列 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + H` | 聚焦左侧显示器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + J` | 聚焦下方显示器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + K` | 聚焦上方显示器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + L` | 聚焦右侧显示器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
+| `Alt + Tab` | 在最近使用窗口间切换（下一个）（限定当前显示器） | ✅  |
+| `Alt + Shift + Tab` | 在最近使用窗口间切换（上一个）（限定当前显示器） | ✅  |
+| `` Alt + ` `` | 在最近使用窗口间切换（下一个）（按应用分组） | ✅  |
+| `` Alt + Shift + ` `` | 在最近使用窗口间切换（上一个）（按应用分组） | ✅  |
+| `Super + H` | 聚焦左边一列 | ✅  |
+| `Super + J` | 聚焦下方窗口 | ✅  |
+| `Super + K` | 聚焦上方窗口 | ✅  |
+| `Super + L` | 聚焦右边一列 | ✅  |
+| `Super + Home` | 聚焦最左一列 | ✅ 由固件接口上报（Intel HID events），未实测 |
+| `Super + End` | 聚焦最右一列 | ✅ 由固件接口上报（Intel HID events），未实测 |
+| `Super + Ctrl + H` | 聚焦左侧显示器 | ✅  |
+| `Super + Ctrl + J` | 聚焦下方显示器 | ✅  |
+| `Super + Ctrl + K` | 聚焦上方显示器 | ✅  |
+| `Super + Ctrl + L` | 聚焦右侧显示器 | ✅  |
 
 ## 1 · niri 合成器层 › 工作区（31 条）
 
 | 按键 | 功能 | 备注 |
 |---|---|---|
-| `Super + O` | 切换工作区总览（Overview） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；按住不重复 |
-| `Super + Tab` | 切换工作区总览（Overview） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；按住不重复 |
-| `Super + PgDn` | 切到下一个工作区 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + PgUp` | 切到上一个工作区 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + U` | 切到下一个工作区 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + I` | 切到上一个工作区 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + U` | 把当前列移到下一个工作区 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + I` | 把当前列移到上一个工作区 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + R` | 重命名当前工作区 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + PgDn` | 把本工作区顺序下移 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + PgUp` | 把本工作区顺序上移 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + U` | 把本工作区顺序下移 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + I` | 把本工作区顺序上移 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + 1` | 切换到工作区 1 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + 2` | 切换到工作区 2 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + 3` | 切换到工作区 3 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + 4` | 切换到工作区 4 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + 5` | 切换到工作区 5 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + 6` | 切换到工作区 6 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + 7` | 切换到工作区 7 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + 8` | 切换到工作区 8 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + 9` | 切换到工作区 9 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + 1` | 把当前列移到工作区 1 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + 2` | 把当前列移到工作区 2 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + 3` | 把当前列移到工作区 3 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + 4` | 把当前列移到工作区 4 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + 5` | 把当前列移到工作区 5 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + 6` | 把当前列移到工作区 6 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + 7` | 把当前列移到工作区 7 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + 8` | 把当前列移到工作区 8 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + 9` | 把当前列移到工作区 9 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
+| `Super + O` | 切换工作区总览（Overview） | ✅ 按住不重复 |
+| `Super + Tab` | 切换工作区总览（Overview） | ✅ 按住不重复 |
+| `Super + PgDn` | 切到下一个工作区 | ✅ 由固件接口上报（Intel HID events），未实测 |
+| `Super + PgUp` | 切到上一个工作区 | ✅ 由固件接口上报（Intel HID events），未实测 |
+| `Super + U` | 切到下一个工作区 | ✅  |
+| `Super + I` | 切到上一个工作区 | ✅  |
+| `Super + Ctrl + U` | 把当前列移到下一个工作区 | ✅  |
+| `Super + Ctrl + I` | 把当前列移到上一个工作区 | ✅  |
+| `Super + Alt + R` | 重命名当前工作区 | ✅  |
+| `Super + Shift + PgDn` | 把本工作区顺序下移 | ✅ 由固件接口上报（Intel HID events），未实测 |
+| `Super + Shift + PgUp` | 把本工作区顺序上移 | ✅ 由固件接口上报（Intel HID events），未实测 |
+| `Super + Shift + U` | 把本工作区顺序下移 | ✅  |
+| `Super + Shift + I` | 把本工作区顺序上移 | ✅  |
+| `Super + 1` | 切换到工作区 1 | ✅  |
+| `Super + 2` | 切换到工作区 2 | ✅  |
+| `Super + 3` | 切换到工作区 3 | ✅  |
+| `Super + 4` | 切换到工作区 4 | ✅  |
+| `Super + 5` | 切换到工作区 5 | ✅  |
+| `Super + 6` | 切换到工作区 6 | ✅  |
+| `Super + 7` | 切换到工作区 7 | ✅  |
+| `Super + 8` | 切换到工作区 8 | ✅  |
+| `Super + 9` | 切换到工作区 9 | ✅  |
+| `Super + Shift + 1` | 把当前列移到工作区 1 | ✅  |
+| `Super + Shift + 2` | 把当前列移到工作区 2 | ✅  |
+| `Super + Shift + 3` | 把当前列移到工作区 3 | ✅  |
+| `Super + Shift + 4` | 把当前列移到工作区 4 | ✅  |
+| `Super + Shift + 5` | 把当前列移到工作区 5 | ✅  |
+| `Super + Shift + 6` | 把当前列移到工作区 6 | ✅  |
+| `Super + Shift + 7` | 把当前列移到工作区 7 | ✅  |
+| `Super + Shift + 8` | 把当前列移到工作区 8 | ✅  |
+| `Super + Shift + 9` | 把当前列移到工作区 9 | ✅  |
 
 ## 1 · niri 合成器层 › 显示器 / 输出（6 条）
 
 | 按键 | 功能 | 备注 |
 |---|---|---|
-| `Super + Shift + Ctrl + H` | 把当前列移到左侧显示器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + Ctrl + J` | 把当前列移到下方显示器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + Ctrl + K` | 把当前列移到上方显示器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + Ctrl + L` | 把当前列移到右侧显示器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + P` | 循环切换显示器配置方案 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + P` | 关闭显示器（省电） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
+| `Super + Shift + Ctrl + H` | 把当前列移到左侧显示器 | ✅  |
+| `Super + Shift + Ctrl + J` | 把当前列移到下方显示器 | ✅  |
+| `Super + Shift + Ctrl + K` | 把当前列移到上方显示器 | ✅  |
+| `Super + Shift + Ctrl + L` | 把当前列移到右侧显示器 | ✅  |
+| `Super + P` | 循环切换显示器配置方案 | ✅  |
+| `Super + Shift + P` | 关闭显示器（省电） | ✅  |
 
 ## 1 · niri 合成器层 › 声音 / 亮度 / 媒体（6 条）
 
 | 按键 | 功能 | 备注 |
 |---|---|---|
-| `Super + A` | 控制中心（音量、亮度、网络等） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + =` | 系统音量 +3% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + -` | 系统音量 -3% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + 0` | 系统静音 切换 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Shift + =` | 屏幕亮度 +10% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Shift + -` | 屏幕亮度 -10% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
+| `Super + A` | 控制中心（音量、亮度、网络等） | ✅  |
+| `Super + Alt + =` | 系统音量 +3% | ✅  |
+| `Super + Alt + -` | 系统音量 -3% | ✅  |
+| `Super + Alt + 0` | 系统静音 切换 | ✅  |
+| `Super + Alt + Shift + =` | 屏幕亮度 +10% | ✅  |
+| `Super + Alt + Shift + -` | 屏幕亮度 -10% | ✅  |
 
 ## 1 · niri 合成器层 › 截图（6 条）
 
@@ -135,71 +135,71 @@
 | `PrtSc` | 截图：区域截图 | ⛔ 你标记为「本机键盘没有这个键」 |
 | `Ctrl + PrtSc` | 截图：全屏截图 | ⛔ 你标记为「本机键盘没有这个键」 |
 | `Alt + PrtSc` | 截图：窗口截图 | ⛔ 你标记为「本机键盘没有这个键」 |
-| `Super + Alt + S` | 截图：区域截图 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Shift + F` | 截图：全屏截图 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Ctrl + S` | 截图：窗口截图 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
+| `Super + Alt + S` | 截图：区域截图 | ✅  |
+| `Super + Alt + Shift + F` | 截图：全屏截图 | ✅  |
+| `Super + Alt + Ctrl + S` | 截图：窗口截图 | ✅  |
 
 ## 1 · niri 合成器层 › 应用 / 系统面板（22 条）
 
 | 按键 | 功能 | 备注 |
 |---|---|---|
-| `Super + Shift + /` | 快捷键面板 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + T` | 打开终端 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Enter` | 打开终端 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Space` | 打开 / 关闭 启动器 Spotlight | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Alt + Space` | 打开 / 关闭 顶部 Spotlight 输入条 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + V` | 剪贴板历史 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + M` | 打开 Dash 面板（媒体页） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + X` | 电源菜单（关机 / 重启 / 注销） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + D` | 打开 Dash 面板 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + C` | 屏幕取色器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + N` | 夜间模式（护眼色温） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + I` | 阻止休眠 / 息屏 切换 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + ,` | DMS 设置面板 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Y` | 打开 Dash 面板（壁纸页） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + N` | 便签 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + N` | 便签（展开） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Ctrl + N` | 通知中心 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + L` | 锁屏 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Shift + E` | 退出 niri（关闭整个会话） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Ctrl + Alt + Del` | 进程管理器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Ctrl + Alt + M` | 进程管理器 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Esc` | 切换「快捷键抑制」（把按键交还应用） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；应用接管按键时仍生效 |
+| `Super + Shift + /` | 快捷键面板 | ✅  |
+| `Super + T` | 打开终端 | ✅  |
+| `Super + Enter` | 打开终端 | ✅  |
+| `Super + Space` | 打开 / 关闭 启动器 Spotlight | ✅  |
+| `Alt + Space` | 打开 / 关闭 顶部 Spotlight 输入条 | ✅  |
+| `Super + V` | 剪贴板历史 | ✅  |
+| `Super + M` | 打开 Dash 面板（媒体页） | ✅  |
+| `Super + X` | 电源菜单（关机 / 重启 / 注销） | ✅  |
+| `Super + D` | 打开 Dash 面板 | ✅  |
+| `Super + Shift + C` | 屏幕取色器 | ✅  |
+| `Super + Alt + N` | 夜间模式（护眼色温） | ✅  |
+| `Super + Alt + I` | 阻止休眠 / 息屏 切换 | ✅  |
+| `Super + ,` | DMS 设置面板 | ✅  |
+| `Super + Y` | 打开 Dash 面板（壁纸页） | ✅  |
+| `Super + N` | 便签 | ✅  |
+| `Super + Shift + N` | 便签（展开） | ✅  |
+| `Super + Ctrl + N` | 通知中心 | ✅  |
+| `Super + Alt + L` | 锁屏 | ✅  |
+| `Super + Shift + E` | 退出 niri（关闭整个会话） | ✅  |
+| `Ctrl + Alt + Del` | 进程管理器 | ✅  |
+| `Ctrl + Alt + M` | 进程管理器 | ✅  |
+| `Super + Esc` | 切换「快捷键抑制」（把按键交还应用） | ✅ 由固件接口上报（Ideapad extra buttons），未实测；应用接管按键时仍生效 |
 
 ## 1 · niri 合成器层 › 多媒体 / 专用键（18 条）
 
 | 按键 | 功能 | 备注 |
 |---|---|---|
-| `音量+` | 系统音量 +3% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `音量-` | 系统音量 -3% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `静音` | 系统静音 切换 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `麦静音` | 麦克风静音 切换 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `播放` | 播放 / 暂停（当前播放器） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `播放` | 播放 / 暂停（当前播放器） | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `上一曲` | 上一曲 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `下一曲` | 下一曲 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `Ctrl + 音量+` | 播放器音量 +3% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `Ctrl + 音量-` | 播放器音量 -3% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `亮度+` | 屏幕亮度 +5% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `亮度-` | 屏幕亮度 -5% | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效 |
-| `触控板` | 触摸板开关 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出；锁屏时也生效；按住不重复 |
-| `触控板开` | 显示触摸板状态提示 | ❓ ；锁屏时也生效；按住不重复 |
-| `触控板关` | 显示触摸板状态提示 | ❓ ；锁屏时也生效；按住不重复 |
-| `Launch1` | 截图：区域截图 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Ctrl + Launch1` | 截图：全屏截图 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Alt + Launch1` | 截图：窗口截图 | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
+| `音量+` | 系统音量 +3% | ✅ 由固件接口上报（Intel HID 5 button array、Intel HID events），未实测；锁屏时也生效 |
+| `音量-` | 系统音量 -3% | ✅ 由固件接口上报（Intel HID 5 button array、Intel HID events），未实测；锁屏时也生效 |
+| `静音` | 系统静音 切换 | ✅ 由固件接口上报（Intel HID events），未实测；锁屏时也生效 |
+| `麦静音` | 麦克风静音 切换 | ✅ 由固件接口上报（Ideapad extra buttons），未实测；锁屏时也生效 |
+| `播放` | 播放 / 暂停（当前播放器） | ✅ 由固件接口上报（Intel HID events），未实测；锁屏时也生效 |
+| `播放` | 播放 / 暂停（当前播放器） | ✅ 由固件接口上报（Intel HID events），未实测；锁屏时也生效 |
+| `上一曲` | 上一曲 | ❓ Consumer 页只由 GXTP5100:00 27C6:01E9 声明（非键盘设备）→ 需实测；锁屏时也生效 |
+| `下一曲` | 下一曲 | ❓ Consumer 页只由 GXTP5100:00 27C6:01E9 声明（非键盘设备）→ 需实测；锁屏时也生效 |
+| `Ctrl + 音量+` | 播放器音量 +3% | ✅ 由固件接口上报（Intel HID 5 button array、Intel HID events），未实测；锁屏时也生效 |
+| `Ctrl + 音量-` | 播放器音量 -3% | ✅ 由固件接口上报（Intel HID 5 button array、Intel HID events），未实测；锁屏时也生效 |
+| `亮度+` | 屏幕亮度 +5% | ✅ 由固件接口上报（Intel HID events、Video Bus），未实测；锁屏时也生效 |
+| `亮度-` | 屏幕亮度 -5% | ✅ 由固件接口上报（Intel HID events、Video Bus），未实测；锁屏时也生效 |
+| `触控板` | 触摸板开关 | ✅ 由固件接口上报（Ideapad extra buttons），未实测；锁屏时也生效；按住不重复 |
+| `触控板开` | 显示触摸板状态提示 | ✅ 由固件接口上报（Ideapad extra buttons），未实测；锁屏时也生效；按住不重复 |
+| `触控板关` | 显示触摸板状态提示 | ❓ 文件层面无法判定，需实测；锁屏时也生效；按住不重复 |
+| `Launch1` | 截图：区域截图 | ✅ 由固件接口上报（Ideapad extra buttons），未实测 |
+| `Ctrl + Launch1` | 截图：全屏截图 | ✅ 由固件接口上报（Ideapad extra buttons），未实测 |
+| `Alt + Launch1` | 截图：窗口截图 | ✅ 由固件接口上报（Ideapad extra buttons），未实测 |
 
 ## 1 · niri 合成器层 › 其它（7 条）
 
 | 按键 | 功能 | 备注 |
 |---|---|---|
-| `Super + Alt + /` | 运行 bash | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Shift + /` | 运行 bash | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Shift + V` | 运行 screencast-menu | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Shift + R` | 运行 screencast | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Shift + S` | 运行 screencast | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Shift + M` | 运行 screencast | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
-| `Super + Alt + Shift + N` | 运行 screencast | ⛔ 所有 HID 描述符都没覆盖 → 一定按不出 |
+| `Super + Alt + /` | 运行 bash | ✅  |
+| `Super + Alt + Shift + /` | 运行 bash | ✅  |
+| `Super + Alt + Shift + V` | 运行 screencast-menu | ✅  |
+| `Super + Alt + Shift + R` | 运行 screencast | ✅  |
+| `Super + Alt + Shift + S` | 运行 screencast | ✅  |
+| `Super + Alt + Shift + M` | 运行 screencast | ✅  |
+| `Super + Alt + Shift + N` | 运行 screencast | ✅  |
 
 ## 2 · 输入法层（fcitx5）（7 条）
 
@@ -254,6 +254,23 @@
 |---|---|---|
 | `Ctrl + Alt + F1 … F12` | 切换到内核虚拟终端 tty1–tty12 | 内核 vt 子系统处理；tty1 通常是没有图形界面时的登录终端 |
 | `Ctrl + Alt + F7` | 切回图形界面所在的 VT | 多数发行版图形会话在 tty2 或 tty1，不确定时按 Ctrl+Alt+F1/F2 试 |
+
+## 4 · 内核 / 硬件层 › 固件功能键（Fn 行）（12 条）
+
+| 按键 | 功能 | 备注 |
+|---|---|---|
+| `静音` | 切换系统静音 | 固件上报键码 113（Intel HID events），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `音量-` | 降低系统音量（由桌面按固定步长处理） | 固件上报键码 114（Intel HID 5 button array），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `音量+` | 提高系统音量（由桌面按固定步长处理） | 固件上报键码 115（Intel HID 5 button array），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `自定义键` | 由厂商定义的附加键（常见为截图或性能模式） | 固件上报键码 148（Ideapad extra buttons），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `播放/暂停` | 播放或暂停当前媒体 | 固件上报键码 164（Intel HID events），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `摄像头` | 开 / 关摄像头 | 固件上报键码 212（Ideapad extra buttons），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `亮度-` | 降低屏幕亮度 | 固件上报键码 224（Intel HID events），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `亮度+` | 提高屏幕亮度 | 固件上报键码 225（Intel HID events），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `亮度循环` | 循环调节亮度 | 固件上报键码 243（Video Bus），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `麦克风静音` | 切换麦克风静音 | 固件上报键码 248（Ideapad extra buttons），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `触摸板开关` | 开 / 关触摸板 | 固件上报键码 530（Ideapad extra buttons），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
+| `触摸板开` | 打开触摸板 | 固件上报键码 532（Ideapad extra buttons），配置里没有绑定；按 Fn 组合时系统看到的是这个键码，不是 F 键编号 |
 
 ## 5 · KDE 全局快捷键层 › 键盘布局切换（2 条）
 
@@ -475,7 +492,7 @@
 |---|---|---|
 | Firefox / Chromium / Electron 应用内快捷键 | 编译进程序或存在 profile 的加密库里，没有统一的导出接口 | 菜单 → 帮助 → 键盘快捷键；Firefox 也可在 about:config 搜 key_ 前缀 |
 | GTK / Qt 的 .ui 文件与代码里的 accel | 散布在源码与资源包里，运行期才注册，没有枚举 API | 应用内「快捷键」设置页；或 grep accel 对应的 .ui 文件 |
-| 键盘固件里的 Fn 组合（如 Fn+F1 调亮度） | 由键盘控制器自己处理，操作系统完全看不到；只能按一下看有没有反应 | 查键盘说明书；或 sudo libinput debug-events --show-keycodes 实测 |
+| 键盘固件里的 Fn 组合本身（Fn 是不是硬件层、能不能改） | Fn 由键盘控制器自己处理，操作系统看不到按下 Fn 这个动作；它发出的功能键码已在内核层的「固件功能键（Fn 行）」里列出 | 查键盘说明书；或 sudo libinput debug-events --show-keycodes 实测 |
 | 浏览器扩展的快捷键 | 存在各扩展自己的存储里，需要逐个读取扩展数据目录 | 扩展自己的快捷键设置页 |
 | Wayland 的 xdg-desktop-portal GlobalShortcuts | 按会话／应用隔离：对其他应用的会话调用 ListShortcuts 会被 Access denied | busctl --user tree org.freedesktop.portal.Desktop 能看到会话属主，读不到内容 |
 | Flatpak / Snap 应用的自定义键 | 沙箱有自己的配置目录，路径与宿主不同 | 进 flatpak run --command=sh 的应用沙箱里看 ~/.config |

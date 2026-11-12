@@ -93,6 +93,92 @@ def sysrq_mask() -> int | None:
         return None
 
 
+def firmware_key_rows() -> list[Row]:
+    """从固件 / ACPI 按键接口列出功能键（亮度、音量、触摸板…）。
+
+    这些键不在任何配置文件的 `binds {}` 里——它们是键盘固件直接发给系统的
+    键码。用户问的「Fn 键调亮度」就落在这里：按 Fn+F6 时，操作系统看到的是
+    `KEY_BRIGHTNESSUP(225)`，看不到「F6」。
+    """
+    from .. import devices as devmod
+
+    report = devmod.read_devices()
+    if not report.acpi:
+        return []
+
+    rows: list[Row] = []
+    for code in sorted(report.acpi):
+        zh = FIRMWARE_KEYS.get(code)
+        if not zh:
+            continue
+        owners = sorted(set(report.acpi[code]))
+        rows.append(Row(
+            layer=f"{PREFIX} › 固件功能键（Fn 行）",
+            keys=[zh],
+            action=FIRMWARE_ACTIONS.get(zh, zh),
+            note=f"固件上报键码 {code}（{owners[0]}），配置里没有绑定；"
+                 f"按 Fn 组合时系统看到的是这个键码，不是 F 键编号",
+            source="、".join(owners),
+        ))
+    return rows
+
+
+# evdev 键码 → 键帽上的常见印字。只列笔记本 Fn 行真的会出现的那批。
+FIRMWARE_KEYS = {
+    113: "静音",
+    114: "音量-",
+    115: "音量+",
+    148: "自定义键",
+    152: "锁屏",
+    163: "下一曲",
+    164: "播放/暂停",
+    165: "上一曲",
+    172: "主页",
+    173: "刷新",
+    191: "F20（常作麦克风静音）",
+    212: "摄像头",
+    224: "亮度-",
+    225: "亮度+",
+    228: "键盘背光切换",
+    229: "键盘背光-",
+    230: "键盘背光+",
+    237: "蓝牙开关",
+    238: "无线开关",
+    243: "亮度循环",
+    248: "麦克风静音",
+    530: "触摸板开关",
+    532: "触摸板开",
+    533: "触摸板关",
+}
+
+
+FIRMWARE_ACTIONS = {
+    "静音": "切换系统静音",
+    "音量-": "降低系统音量（由桌面按固定步长处理）",
+    "音量+": "提高系统音量（由桌面按固定步长处理）",
+    "亮度-": "降低屏幕亮度",
+    "亮度+": "提高屏幕亮度",
+    "亮度循环": "循环调节亮度",
+    "触摸板开关": "开 / 关触摸板",
+    "触摸板开": "打开触摸板",
+    "触摸板关": "关闭触摸板",
+    "键盘背光切换": "切换键盘背光",
+    "键盘背光-": "调暗键盘背光",
+    "键盘背光+": "调亮键盘背光",
+    "麦克风静音": "切换麦克风静音",
+    "摄像头": "开 / 关摄像头",
+    "无线开关": "切换无线网卡",
+    "蓝牙开关": "切换蓝牙",
+    "锁屏": "锁屏 / 屏保",
+    "播放/暂停": "播放或暂停当前媒体",
+    "上一曲": "切到上一首",
+    "下一曲": "切到下一首",
+    "主页": "打开浏览器主页",
+    "刷新": "刷新当前页面",
+    "自定义键": "由厂商定义的附加键（常见为截图或性能模式）",
+}
+
+
 class KernelLayer(Collector):
     name = PREFIX
 
@@ -160,4 +246,11 @@ class KernelLayer(Collector):
             note="多数发行版图形会话在 tty2 或 tty1，不确定时按 Ctrl+Alt+F1/F2 试",
             source="drivers/tty/vt",
         ))
+
+        # Fn 行的功能键：走 ACPI / 固件接口，不在任何配置里
+        try:
+            rows.extend(firmware_key_rows())
+        except Exception:                      # 读不到就少这一组，不影响其他层
+            pass
+
         return LayerResult(self.name, rows)

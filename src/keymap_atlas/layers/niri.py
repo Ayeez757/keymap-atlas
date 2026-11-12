@@ -55,7 +55,9 @@ class NiriLayer(Collector):
 
             action = kdl.translate(b.body)
             notes: list[str] = []
-            if v.state != evmod.OK:
+            # ACPI 上报的键要写明出处：它说明固件会发这个键码，不等于
+            # 键盘上印着这个键（实际按法可能是 Fn 组合）。
+            if v.state != evmod.OK or v.source == "acpi":
                 notes.append(v.reason)
             for flag in _flags(b):
                 notes.append(flag)

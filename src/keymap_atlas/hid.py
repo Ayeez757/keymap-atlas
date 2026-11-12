@@ -231,6 +231,11 @@ def analyse(hidraws: list[str] | None = None) -> list[HidDevice]:
 
 
 def is_keyboard_like(d: HidDevice) -> bool:
+    """描述符里有没有「键盘类」的按键声明。
+
+    厂商页（0xff00/0xffxx）的设备不算——笔记本内置键盘常把整张键表交给
+    ACPI，描述符里只剩下厂商页和触摸板页，这种情况必须由别的证据判定。
+    """
     return bool(d.kbd_explicit or d.kbd_ranges or d.consumer_ranges)
 
 
@@ -280,8 +285,14 @@ def verdict(keysym: str, devices: list[HidDevice]) -> tuple[str, str]:
 
     yes   有接口显式声明了它（基本确定能按出）
     maybe 只落在「窄范围」里（可能能按出，建议实测）
-    unk   只被「泛型全范围」覆盖（文件层面无法判定，必须实测）
-    no    所有描述符都没覆盖它（一定按不出，无需实测）
+    unk   文件层面无法判定：只被泛型全范围覆盖，或描述符里根本没有这一页
+    no    描述符里**有这一页**、但确实没覆盖它（才能断言按不出）
+
+    「没有这一页」和「有这一页但没这个键」是两件事，必须分开：
+    不少笔记本的 Fn 行、亮度、音量键根本不经过键盘的 HID 描述符，
+    而是由 ACPI（Intel HID events、Ideapad extra buttons、Video Bus）
+    单独上报 KEY_BRIGHTNESS*/KEY_VOLUME*。这类设备的描述符里只有厂商页，
+    拿「描述符没写」去断言「键不存在」就是误判。
     """
     if not devices:
         # 没有设备 ≠ 所有描述符都没覆盖。读不到就说不确定，别断言「没有」。
@@ -290,10 +301,19 @@ def verdict(keysym: str, devices: list[HidDevice]) -> tuple[str, str]:
         return VERDICT_UNKNOWN, "不在 usage 对照表里"
     page, usage = KEYSYM_USAGE[keysym]
     saw_range = saw_generic = False
+    page_owners: list[str] = []
+    keyboard_owners: list[str] = []
     for d in devices:
+        # 「这一段声明能不能替键盘背书」：只有真的带键盘页 0x07 的描述符才算。
+        # 触摸板也声明 Consumer 页（用来上报「手指按下」），它没覆盖某个 usage
+        # 不能说键盘上没有这个键。
+        kbd_like = any(f.page == 0x07 for f in d.fields)
         for f in d.fields:
             if f.page != page:
                 continue
+            page_owners.append(getattr(d, "name", "") or getattr(d, "hidraw", "?"))
+            if kbd_like:
+                keyboard_owners.append(getattr(d, "name", "") or getattr(d, "hidraw", "?"))
             if usage in f.usages:
                 return VERDICT_YES, f"{d.hidraw} 显式列举了 usage 0x{usage:02x}"
             if f.umin is not None and f.umax is not None and f.umin <= usage <= f.umax:
@@ -305,4 +325,17 @@ def verdict(keysym: str, devices: list[HidDevice]) -> tuple[str, str]:
         return VERDICT_UNKNOWN, "只被泛型全范围覆盖 → 描述符无法判定，需实测"
     if saw_range:
         return VERDICT_MAYBE, "落在窄范围声明内 → 可能能按出，建议实测"
-    return VERDICT_NO, "所有 HID 描述符都没覆盖 → 一定按不出"
+    if not page_owners:
+        # 所有描述符都没有这一页。这不能证明键不存在：笔记本的亮度、音量、
+        # 触摸板键常常由 ACPI 接口（Intel HID events、Ideapad extra buttons、
+        # Video Bus）单独上报，键盘的 HID 描述符里只有厂商页。
+        return VERDICT_UNKNOWN, (f"描述符里没有 {page_name(page)} 页"
+                                 f"（0x{page:02x}）→ 文件层面无法判定，需实测")
+    if keyboard_owners:
+        # 这一页确实由键盘类接口声明，而它没覆盖这个 usage → 可以断言按不出。
+        return VERDICT_NO, (f"{page_name(page)} 页由 {keyboard_owners[0]} 声明，"
+                            f"但没覆盖 usage 0x{usage:02x}")
+    # 只有触摸板 / 鼠标这类设备声明了该页。它们各自的使用范围很窄，
+    # 不能据此推断键盘上没有这个键。
+    return VERDICT_UNKNOWN, (f"{page_name(page)} 页只由 {page_owners[0]} 声明"
+                             f"（非键盘设备）→ 需实测")

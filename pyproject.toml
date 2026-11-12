@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "keymap-atlas"
-version = "0.1.0"
+version = "0.1.1"
 description = "键位图鉴：把 Linux 上散落在各层的快捷键整理成中文速查表，并用真实键盘与 HID 描述符校验能不能按出来"
 readme = "README.md"
 requires-python = ">=3.10"

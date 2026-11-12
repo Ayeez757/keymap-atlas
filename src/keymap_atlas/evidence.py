@@ -4,14 +4,17 @@
   1. observed  用探针**实测按出**过的 keysym        → ✅ 可按
   2. hid       HID 描述符显式声明（且不是泛型全范围）→ ✅ 可按
   3. absent    用户明确标记「我这键盘没有这个键」    → ⛔ 按不出
-  4. hid       HID 描述符完全没覆盖                  → ⛔ 按不出
-  5. hid       只被泛型全范围覆盖 / 窄范围覆盖        → ❓ 存疑
-  6. bitmap    /proc KEY 位图声称有（最弱证据）       → ✅ 但标注「未实测」
+  4. hid       HID 描述符**有这一页**却没覆盖        → ⛔ 按不出
+  5. acpi      固件/ACPI 按键接口上报它               → ✅ 可按（未实测）
+  6. hid       只被泛型全范围覆盖 / 窄范围覆盖        → ❓ 存疑
+  7. bitmap    /proc KEY 位图声称有（最弱证据）       → ✅ 但标注「未实测」
 
-这样修掉了两个真实误判：
+这样修掉了三个真实误判：
   · Consumer Control 的通用数组让 /proc 声称「有音量键」，实机按不出；
   · PrintScreen 在 evdev 是 KEY_SYSRQ(99) 而非 210，位图里 210 是 Consumer
-    接口声明的假象。
+    接口声明的假象；
+  · 笔记本的亮度/音量键根本不经过键盘 HID 描述符，而是 ACPI 单独上报，
+    拿「描述符里没写」去断言「键不存在」是错的（见第 4 步与 acpi 证据）。
 
 证据文件带键盘指纹：换键盘后旧记录**不删除**，只降级为「旧键盘记录」，
 避免用户在键盘之间来回换时反复丢掉实测结果（见 PRD：键盘会换）。
@@ -162,27 +165,37 @@ def judge(keysym: str,
     if keysym in evidence.absent:
         return Verdict(BAD, "你标记为「本机键盘没有这个键」", "absent")
 
-    # 4. HID 明确没覆盖
+    # 4. HID 描述符里有这一页、但确实没覆盖
     if hv == hidmod.VERDICT_NO:
         return Verdict(BAD, hv_reason, "hid")
 
-    # 5. 旧键盘的实测记录：不是否定，只是提示存疑
+    # 5. 固件 / ACPI 按键接口上报它
+    #    笔记本的亮度、音量、触摸板键常常不经过键盘的 HID 描述符，而是由
+    #    Intel HID events / Ideapad extra buttons / Video Bus 这类接口单独上报。
+    #    这些接口的键位写死在 ACPI 表里，不是 HID 通用数组，位图可信。
+    if keycode is not None and keyboard is not None:
+        owners = keyboard.acpi.get(keycode)
+        if owners:
+            src = "、".join(sorted(set(owners)))
+            return Verdict(OK, f"由固件接口上报（{src}），未实测", "acpi")
+
+    # 6. 旧键盘的实测记录：不是否定，只是提示存疑
     if keysym in evidence.observed_stale:
         return Verdict(UNKNOWN, "实测记录来自换键盘之前的旧键盘，请重跑 probe", "observed")
 
-    # 6. HID 存疑 / 窄范围
+    # 7. HID 存疑 / 窄范围
     #    普通按键（字母、数字、F 键、方向键、修饰键）只被通用数组覆盖是**正常的**——
     #    几乎所有 USB 键盘都这么写描述符。这种键继续走 /proc 位图（位图对它们可信，
     #    因为矩阵里必然包含）；只有 XF86 媒体键/亮度键才真正无法从文件判定。
     if hv == hidmod.VERDICT_UNKNOWN:
         if keysym.startswith("XF86") or keycode is None:
-            return Verdict(UNKNOWN, hv_reason, "hid")
-        # 落到第 7 步用位图判定，但备注里保留「描述符未点名」这一事实
+            return Verdict(UNKNOWN, hv_reason or "文件层面无法判定，需实测", "hid")
+        # 落到第 8 步用位图判定，但备注里保留「描述符未点名」这一事实
         hv = hidmod.VERDICT_UNKNOWN
     elif hv == hidmod.VERDICT_MAYBE:
         return Verdict(OK, hv_reason + "（未实测）", "hid")
 
-    # 7. 最弱证据：/proc KEY 位图
+    # 8. 最弱证据：/proc KEY 位图
     if keycode is not None and keyboard is not None:
         if keycode in keyboard.union:
             if keysym.startswith("XF86"):

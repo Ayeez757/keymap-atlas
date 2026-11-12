@@ -67,7 +67,11 @@ def cmd_report(args) -> int:
 # --------------------------------------------------------------------- hid
 def cmd_hid(args) -> int:
     devs = hidmod.analyse()
-    devs = [d for d in devs if hidmod.is_keyboard_like(d)] if not args.all else devs
+    if not args.all:
+        # 过滤掉纯触摸板/鼠标，但**不要**把「描述符里没有键盘页」的设备一起丢掉：
+        # 笔记本内置键盘正是这种情况（键表交给 ACPI），丢掉就只剩一句「读不到」。
+        keyboard_like = [d for d in devs if hidmod.is_keyboard_like(d)]
+        devs = keyboard_like or devs
 
     if args.json:
         print(json.dumps([{

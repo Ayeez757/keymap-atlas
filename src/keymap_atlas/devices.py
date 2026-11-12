@@ -125,6 +125,24 @@ def is_keyboard_matrix(d: Device) -> bool:
     return alpha >= 20 and mods >= 3
 
 
+def is_acpi_button_device(d: Device) -> bool:
+    """判断某个接口是不是「固件/ACPI 上报的功能键接口」。
+
+    典型名字：Intel HID events、Intel HID 5 button array、Ideapad extra buttons、
+    Video Bus、某机型自带的 HotKeys。特征：
+      · 挂在 kbd handler 下（所以会向合成器发送按键事件）；
+      · 不是真正的键盘矩阵（不能打字，没有 LED）；
+      · 有自己的 KEY 位图。
+
+    它们的键位是 ACPI 表里写死的，不是 HID 通用数组，所以位图**可信**——
+    这和真正键盘矩阵的情况刚好相反。笔记本的亮度键常常只出现在这里，
+    键盘的 HID 描述符里根本没有。
+    """
+    if not d.key or is_keyboard_matrix(d):
+        return False
+    return "kbd" in d.handlers
+
+
 @dataclass
 class KeyboardReport:
     union: set[int]
@@ -132,9 +150,16 @@ class KeyboardReport:
     aux: list[str]
     mouse_wheel: bool
     providers: dict[int, list[str]]
+    # ACPI / 固件按键接口（Intel HID events、Ideapad extra buttons、Video Bus…）
+    # 这些接口不上报打字键，只上报亮度、音量、触摸板这类功能键。
+    # 键位由固件写死（不是 HID 通用数组），所以它们的能力位图是可信的。
+    acpi: dict[int, list[str]] = field(default_factory=dict)
 
     def name_text(self) -> str:
         return "、".join(self.names) or "未检测到"
+
+    def acpi_text(self) -> str:
+        return "、".join(sorted({n for ns in self.acpi.values() for n in ns}))
 
 
 def read_devices(verbose: bool = False, text: str | None = None) -> KeyboardReport:
@@ -156,6 +181,13 @@ def read_devices(verbose: bool = False, text: str | None = None) -> KeyboardRepo
     aux = [d.name for d in blocks
            if "Consumer Control" in d.name or "System Control" in d.name]
 
+    acpi: dict[int, list[str]] = {}
+    for d in blocks:
+        if not is_acpi_button_device(d):
+            continue
+        for c in d.key:
+            acpi.setdefault(c, []).append(d.name.strip())
+
     mouse_wheel = any(
         (8 in d.rel and "mouse" in d.handlers) or (8 in d.rel and "kbd" not in d.handlers)
         for d in blocks
@@ -166,9 +198,15 @@ def read_devices(verbose: bool = False, text: str | None = None) -> KeyboardRepo
         print("检测到的键盘矩阵：")
         for d in mats:
             print(f"  - {d.name} (bus {d.bus} {d.vendor}:{d.product}, {len(d.key)} 键)")
+        if acpi:
+            print("检测到的固件/ACPI 按键接口：")
+            for d in blocks:
+                if is_acpi_button_device(d):
+                    print(f"  - {d.name} ({len(d.key)} 键)")
 
     return KeyboardReport(union=union, names=names, aux=aux,
-                          mouse_wheel=mouse_wheel, providers=providers)
+                          mouse_wheel=mouse_wheel, providers=providers,
+                          acpi=acpi)
 
 
 def fingerprint_of(devices: list[Device]) -> str:

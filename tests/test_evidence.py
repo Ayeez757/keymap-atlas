@@ -84,12 +84,51 @@ class TestJudgePriority(unittest.TestCase):
         self.assertEqual(v.state, ev.OK)
         self.assertEqual(v.source, "hid")
 
-    def test_hid_no_coverage_is_bad(self):
-        """描述符完全没有 Consumer 页 → 媒体键一定按不出。"""
+    def test_hid_page_absent_is_unknown(self):
+        """描述符里根本没有 Consumer 页 → 不能断言媒体键按不出。
+
+        笔记本的亮度、音量键常由 ACPI 接口（Intel HID events 等）单独上报，
+        键盘 HID 描述符里只有厂商页。这里只能落到 ❓。
+        """
         devs = [descriptor_with_usage(0x07, 0x04)]
         v = self.judge("XF86AudioRaiseVolume", 115, hid_devices=devs)
-        self.assertEqual(v.state, ev.BAD)
+        self.assertEqual(v.state, ev.UNKNOWN)
         self.assertEqual(v.source, "hid")
+
+    def test_hid_keyboard_page_without_usage_is_bad(self):
+        """键盘类描述符声明了 Consumer 页却没覆盖这个 usage → 可以断言按不出。"""
+        data = bytes([
+            0x05, 0x07, 0x19, 0x00, 0x29, 0x65,   # 键盘页 0x00-0x65（真键盘都有）
+            0x15, 0x00, 0x25, 0x01, 0x75, 0x08, 0x95, 0x06, 0x81, 0x00,
+            0x05, 0x0C, 0x09, 0xE9,   # Consumer 页：只点名 Volume Up
+            0x15, 0x00, 0x25, 0x01, 0x75, 0x01, 0x95, 0x01, 0x81, 0x02,
+        ])
+        devs = [hid.device_from_parse(hid.HIDParse(data), hidraw="kbd")]
+        v = self.judge("XF86AudioRaiseVolume", 115, hid_devices=devs)
+        self.assertEqual(v.state, ev.OK)          # 点名了 Volume Up
+        v2 = self.judge("XF86AudioPlay", 164, hid_devices=devs)
+        self.assertEqual(v2.state, ev.BAD)
+        self.assertEqual(v2.source, "hid")
+
+    def test_acpi_button_interface_confirms(self):
+        """亮度键只出现在 ACPI 接口（Intel HID events）的位图里 → 可按。"""
+        from keymap_atlas.devices import KeyboardReport
+        kb = KeyboardReport(union={16, 113, 114, 115}, names=["AT 键盘"],
+                            aux=[], mouse_wheel=False, providers={},
+                            acpi={224: ["Intel HID events", "Video Bus"],
+                                  225: ["Intel HID events", "Video Bus"]})
+        v = self.judge("XF86MonBrightnessUp", 225, keyboard=kb)
+        self.assertEqual(v.state, ev.OK)
+        self.assertEqual(v.source, "acpi")
+        self.assertIn("Intel HID events", v.reason)
+
+    def test_niri_media_bind_is_bad_not_unknown(self):
+        """niri 里配的是 XF86 键，但键盘位图里没有 → 之前误判成「描述符没覆盖」。"""
+        from keymap_atlas.devices import KeyboardReport
+        kb = KeyboardReport(union=set(range(1, 250)), names=["测试键盘"],
+                            aux=[], mouse_wheel=False, providers={})
+        v = self.judge("XF86AudioRaiseVolume", 115, keyboard=kb)
+        self.assertEqual(v.state, ev.UNKNOWN)
 
     def test_media_key_without_evidence_is_unknown(self):
         # XF86 键只被泛型全范围覆盖 + 位图命中 → 必须存疑，不能断言「有」
