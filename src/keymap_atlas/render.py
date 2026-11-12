@@ -262,7 +262,9 @@ def render_html(results: list[LayerResult], keyboard: str, fingerprint: str) -> 
 
 
 # ------------------------------------------------------------- TSV / JSON
-INDEX_HEADER = ["keys", "action", "note", "layer_top", "status", "aliases"]
+# 第 4 列存完整的 layer（含「› 子组」）：查表时要能看出这条属于哪一组，
+# 例如「4 · 内核 / 硬件层 › 固件功能键（Fn 行）」。
+INDEX_HEADER = ["keys", "action", "note", "layer", "status", "aliases"]
 
 
 def render_tsv(results: list[LayerResult]) -> str:
@@ -271,7 +273,7 @@ def render_tsv(results: list[LayerResult]) -> str:
         for r in res.rows:
             lines.append("\t".join([
                 _tsv_safe(r.keys_text), _tsv_safe(r.action), _tsv_safe(r.note),
-                _tsv_safe(r.layer_top), _tsv_safe(r.status), _tsv_safe(r.aliases),
+                _tsv_safe(r.layer), _tsv_safe(r.status), _tsv_safe(r.aliases),
             ]))
     return "\n".join(lines) + ("\n" if lines else "")
 

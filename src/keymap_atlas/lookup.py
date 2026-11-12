@@ -40,7 +40,10 @@ def search(rows: list[dict[str, str]], query: str,
     for r in rows:
         if not include_inactive and r.get("status") != "生效":
             continue
-        if matches(r.get("action", ""), r.get("aliases", ""), r.get("keys", ""), query):
+        # 层名与备注也参与匹配：搜「Fn」能命中固件功能键那一组，
+        # 搜「内核」能命中整个内核层。备注里常写着真正的原因。
+        hay = f'{r.get("action", "")} {r.get("layer", "")} {r.get("note", "")}'
+        if matches(hay, r.get("aliases", ""), r.get("keys", ""), query):
             out.append(r)
     return out
 
@@ -52,7 +55,13 @@ def format_row(r: dict[str, str], width: int = 30) -> str:
 
 
 def build_fuzzel_lines(rows: list[dict[str, str]]) -> list[str]:
-    return [format_row(r) for r in rows]
+    """fuzzel 弹窗只有 68 字符宽，层名只留顶层（「4 · 内核 / 硬件层」）。"""
+    short = []
+    for r in rows:
+        layer = r.get("layer", "")
+        top = layer.split(" › ")[0] if " › " in layer else layer
+        short.append(format_row({**r, "layer": top}))
+    return short
 
 
 def fuzzel_pick(lines: list[str], prompt: str = "快捷键 › ") -> str | None:

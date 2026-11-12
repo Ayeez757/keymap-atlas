@@ -107,6 +107,15 @@ class TestLookupSearch(unittest.TestCase):
     def test_no_match(self):
         self.assertEqual(lookup.search(self.rows, "zzzz"), [])
 
+    def test_layer_name_matches(self):
+        """层名参与检索：搜「Fn」要能命中固件功能键那一组。"""
+        rows = [{"keys": "亮度+", "action": "提高屏幕亮度", "note": "固件上报键码 225",
+                 "layer": "4 · 内核 / 硬件层 › 固件功能键（Fn 行）",
+                 "status": ACTIVE, "aliases": ""}]
+        self.assertEqual(len(lookup.search(rows, "Fn")), 1)
+        self.assertEqual(len(lookup.search(rows, "固件")), 1)
+        self.assertEqual(len(lookup.search(rows, "内核")), 1)
+
 
 class TestLoadIndex(unittest.TestCase):
     def test_roundtrip(self):
