@@ -57,21 +57,79 @@ curl    -sS -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8081/healthz
 
 ## 换成正式证书
 
-用户已备案，后续申请 DV 证书后只需：
+证书商给的压缩包里通常有四个文件：
+
+```
+keymap.ayeez.cn.csr          申请时用的，服务器上不需要
+keymap.ayeez.cn.key          私钥，保密
+keymap.ayeez.cn_bundle.crt   叶证书 + 中间 CA + 根证书（三张）
+keymap.ayeez.cn_bundle.pem   和上面的 .crt 内容相同，二选一
+```
+
+**nginx 的 `ssl_certificate` 只要「叶 + 中间」，不要根证书。** 根证书在
+所有系统信任库里本来就有，拼进去只会增加握手体积（这张多 2138 字节）。
+先把 bundle 按 `BEGIN CERTIFICATE` 拆开，取前两张拼成 fullchain：
 
 ```bash
-# 把 fullchain 与私钥覆盖进 deploy/certs/（文件名保持不变）
-docker compose restart web
+cd /tmp && mkdir -p ssl && cd ssl
+unzip ~/keymap.ayeez.cn_other.zip
+cd keymap.ayeez.cn_other
+
+# 拆成 cert1/cert2/cert3（叶 / 中间 / 根）
+awk 'BEGIN{n=0} /BEGIN CERTIFICATE/{n++} {print > ("cert" n ".crt")}' \
+    keymap.ayeez.cn_bundle.crt
+
+# 前两张拼成 fullchain
+awk 'BEGIN{n=0} /BEGIN CERTIFICATE/{n++} n<=2 {print}' \
+    keymap.ayeez.cn_bundle.crt > fullchain.crt
+
+# 确认是两张，且第一张是叶证书
+grep -c "BEGIN CERTIFICATE" fullchain.crt          # 2
+openssl x509 -in fullchain.crt -noout -subject     # CN=keymap.ayeez.cn
+
+# 确认私钥和证书是一对（两个 md5 必须相同）
+openssl x509 -in cert1.crt -noout -modulus | openssl md5
+openssl rsa  -in keymap.ayeez.cn.key -noout -modulus | openssl md5
+```
+
+然后替换服务器上那两个文件（**文件名保持不变**，配置里写死了）：
+
+```bash
+scp fullchain.crt ayeez@<server>:~/keymap-atlas/deploy/certs/keymap.ayeez.cn.crt
+scp keymap.ayeez.cn.key ayeez@<server>:~/keymap-atlas/deploy/certs/keymap.ayeez.cn.key
+
+ssh ayeez@<server> 'cd ~/keymap-atlas/deploy \
+  && chmod 644 certs/keymap.ayeez.cn.crt && chmod 600 certs/keymap.ayeez.cn.key \
+  && docker compose restart web'
 ```
 
 nginx 配置不用改。若证书文件名不同，改 `deploy/nginx.conf` 里的两行
 `ssl_certificate` / `ssl_certificate_key` 即可。
 
-换完用这条确认链是否完整（`Verify return code: 0 (ok)`）：
+换完用这两条确认（`Verify return code: 0 (ok)` 且链里能看到中间 CA）：
 
 ```bash
 openssl s_client -connect keymap.ayeez.cn:443 -servername keymap.ayeez.cn </dev/null \
   | grep -E 'subject=|issuer=|Verify return code'
+
+# 链的层数：应该能看到叶证书和中间 CA 两段 s:/
+openssl s_client -connect keymap.ayeez.cn:443 -servername keymap.ayeez.cn </dev/null \
+  | grep -E '^\s+[0-9]+ s:|^\s+i:'
+```
+
+`sslv2`/`sslv3` 还没关（nginx 默认就不听这些），`TLSv1.2` 以下已经禁用，
+`ssl_session_tickets off` 是为了在换证书时立刻失效旧会话。
+
+### 证书到期
+
+TrustAsia DV 证书有效期三个月。到期前在控制台续期，续期后重复上面这套替换
+流程即可——**配置和容器都不用重建**，只要覆盖两个文件再 `restart`。
+
+到期检查：
+
+```bash
+echo | openssl s_client -connect keymap.ayeez.cn:443 -servername keymap.ayeez.cn 2>/dev/null \
+  | openssl x509 -noout -enddate
 ```
 
 ## 运维
